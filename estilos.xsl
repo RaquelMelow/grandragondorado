@@ -485,15 +485,18 @@ function sendOrder(){
 function goTo(page){
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   var el=document.getElementById('page-'+page);
-  el.classList.add('active'); el.scrollTop=0;
+  if(!el){return;}
+  el.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
   document.querySelectorAll('.nav-links a').forEach(function(a){
     a.classList.toggle('active', a.getAttribute('data-page')===page);
   });
 }
 function irA(sel){
-  var page=document.querySelector('.page.active');
   var target=document.querySelector(sel);
-  if(page && target){page.scrollTo({top:page.scrollTop+target.getBoundingClientRect().top-70,behavior:'smooth'});}
+  if(target){
+    target.scrollIntoView({behavior:'smooth',block:'start'});
+  }
 }
 function togglePosition(card){card.classList.toggle('open');}
 function submitForm(){
