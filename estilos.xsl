@@ -203,6 +203,51 @@
               </div>
             </div>
           </div>
+          <section class="tabla-section" aria-labelledby="tabla-menu-titulo">
+            <h2 id="tabla-menu-titulo">Vista tabla del menú</h2>
+            <p>Listado completo ordenado por precio de menor a mayor.</p>
+            <div class="table-wrap">
+              <table class="menu-table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Picante</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <xsl:for-each select="menu/plato">
+                    <xsl:sort select="precio" data-type="number" order="ascending"/>
+                    <tr>
+                      <td>
+                        <xsl:value-of select="nombre"/>
+                      </td>
+                      <td>
+                        <xsl:value-of select="@categoria"/>
+                      </td>
+                      <td>
+                        <xsl:value-of select="format-number(precio, '#.00')"/>
+                        <xsl:text> €</xsl:text>
+                      </td>
+                      <td>
+                        <xsl:value-of select="stock"/>
+                      </td>
+                      <td>
+                        <xsl:choose>
+                          <xsl:when test="picante/@nivel = 0">No</xsl:when>
+                          <xsl:when test="picante/@nivel &lt;= 2">Suave</xsl:when>
+                          <xsl:when test="picante/@nivel &lt;= 4">Picante</xsl:when>
+                          <xsl:otherwise>Muy picante</xsl:otherwise>
+                        </xsl:choose>
+                      </td>
+                    </tr>
+                  </xsl:for-each>
+                </tbody>
+              </table>
+            </div>
+          </section>
           <footer>
             <div class="footer-col">
               <h4>Donde estamos</h4>
