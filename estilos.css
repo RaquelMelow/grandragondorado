@@ -1362,6 +1362,7 @@ footer {
 
 .table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .menu-table {
@@ -1398,4 +1399,16 @@ footer {
 .menu-table tfoot td {
   background: rgba(0, 0, 0, 0.45);
   font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .tabla-section {
+    margin: 24px 20px;
+    padding: 18px;
+  }
+
+  .menu-table {
+    min-width: 640px;
+    font-size: .92rem;
+  }
 }
