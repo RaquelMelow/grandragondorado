@@ -34,8 +34,10 @@ body {
   position: absolute;
   inset: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background:
     radial-gradient(ellipse at 30% 60%, rgba(139, 0, 0, .18) 0%, transparent 60%),
     radial-gradient(ellipse at 70% 30%, rgba(201, 168, 76, .08) 0%, transparent 50%),
@@ -131,8 +133,11 @@ nav.scrolled {
 
 /* ── HOME ── */
 #page-home {
-  position: relative;
-  min-height: 100vh;
+  position: absolute;
+  inset: 0;
+}
+
+#page-home.active {
   display: flex;
   flex-direction: column;
 }
