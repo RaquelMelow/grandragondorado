@@ -119,6 +119,49 @@
               <span>Plato mas caro</span>
             </div>
           </div>
+
+          <section class="tabla-section">
+            <h2>Tabla completa de platos</h2>
+            <p>Vista tabular ordenada por nivel de picante (descendente) y precio (ascendente). Incluye filtros y calculos XPath.</p>
+            <div class="table-wrap">
+              <table class="menu-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Plato</th>
+                    <th>Precio (€)</th>
+                    <th>Stock</th>
+                    <th>Picante</th>
+                    <th>Valor inventario (€)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <xsl:for-each select="menu/plato[stock &gt;= 10 and precio &gt;= 4]">
+                    <xsl:sort select="picante/@nivel" data-type="number" order="descending"/>
+                    <xsl:sort select="precio" data-type="number" order="ascending"/>
+                    <tr>
+                      <td><xsl:value-of select="@id"/></td>
+                      <td><xsl:value-of select="@categoria"/></td>
+                      <td><xsl:value-of select="nombre"/></td>
+                      <td><xsl:value-of select="format-number(precio,'#.00')"/></td>
+                      <td><xsl:value-of select="stock"/></td>
+                      <td><xsl:value-of select="picante/@nivel"/></td>
+                      <td><xsl:value-of select="format-number(precio * stock,'#.00')"/></td>
+                    </tr>
+                  </xsl:for-each>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="6">Suma de precios filtrados (XPath: sum(menu/plato[stock &gt;= 10 and precio &gt;= 4]/precio))</td>
+                    <td>
+                      <xsl:value-of select="format-number(sum(menu/plato[stock &gt;= 10 and precio &gt;= 4]/precio),'#.00')"/>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </section>
           <footer>
             <div class="footer-col">
               <h4>Donde estamos</h4>

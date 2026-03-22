@@ -1330,3 +1330,62 @@ footer {
     font-size: 2rem;
   }
 }
+/* ── TABLA DEL MENU (XSLT) ── */
+.tabla-section {
+  margin: 40px 50px 30px;
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 16px;
+}
+
+.tabla-section h2 {
+  font-family: 'Cinzel', serif;
+  color: var(--dorado);
+  margin-bottom: 8px;
+}
+
+.tabla-section p {
+  color: rgba(250, 246, 238, .75);
+  margin-bottom: 16px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  font-family: 'EB Garamond', serif;
+  color: var(--crema);
+}
+
+.menu-table th,
+.menu-table td {
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.menu-table thead th {
+  background: rgba(139, 0, 0, 0.55);
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+  font-size: .75rem;
+  letter-spacing: 1px;
+}
+
+.menu-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.menu-table tbody tr:hover {
+  background: rgba(201, 168, 76, 0.14);
+}
+
+.menu-table tfoot td {
+  background: rgba(0, 0, 0, 0.45);
+  font-weight: 700;
+}
