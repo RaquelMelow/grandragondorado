@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gran Dragón Dorado | Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">龙 GDD</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="menu.html">Menú</a>
+      <a href="trabaja.html">Trabaja con nosotros</a>
+      <a class="cart-btn" href="menu.html">🧺 Cesta <span class="cart-count">0</span></a>
+    </div>
+  </nav>
+
+  <div id="page-home" class="page active">
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Desde 1988 · Calle Seda, 8</div>
+        <h1>Gran Dragón<br><span>Dorado</span></h1>
+        <p class="hero-subtitle">Cocina imperial china con alma canaria</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="menu.html">Ver carta</a>
+          <a class="btn-secondary" href="trabaja.html">Trabaja con nosotros</a>
+        </div>
+      </div>
+      <div class="scroll-hint" onclick="irA('.features')">Descubre</div>
+    </section>
+
+    <div class="features">
+      <div class="feature"><div class="feature-icon">🥢</div><h3>Cocina Auténtica</h3><p>Recetas de Sichuan y Cantón, sin concesiones</p></div>
+      <div class="feature"><div class="feature-icon">🛵</div><h3>Para Llevar</h3><p>Pedido online listo en 25 minutos</p></div>
+      <div class="feature"><div class="feature-icon">🫖</div><h3>Té Ceremonial</h3><p>Selección de tés importados de Fujian</p></div>
+    </div>
+
+    <div class="xpath-stats">
+      <div class="xstat"><strong>10</strong><span>Platos en carta</span></div>
+      <div class="xstat"><strong>7.68€</strong><span>Precio medio</span></div>
+      <div class="xstat"><strong>3</strong><span>Platos picantes</span></div>
+      <div class="xstat"><strong>18.00€</strong><span>Plato más caro</span></div>
+    </div>
+
+    <footer>
+      <div class="footer-col"><h4>Dónde estamos</h4><p>Calle Seda, 8<br>Santa Cruz de Tenerife<br>922 000 000</p></div>
+      <div class="footer-col"><h4>Horario</h4><p>Lun-Vie: 13h-16h · 20h-00h<br>Sab-Dom: 13h-00h</p></div>
+      <div class="footer-col"><h4>Síguenos</h4><p>@grandragondonado<br>Instagram · Facebook · TripAdvisor</p></div>
+    </footer>
+    <div class="footer-bottom">© 2025 Gran Dragón Dorado · Todos los derechos reservados</div>
+  </div>
+
+  <script>
+    function irA(sel) {
+      const target = document.querySelector(sel);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+</body>
+</html>

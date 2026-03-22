@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gran Dragón Dorado | Trabaja con nosotros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">龙 GDD</a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="menu.html">Menú</a>
+      <a href="trabaja.html" class="active">Trabaja con nosotros</a>
+      <a class="cart-btn" href="menu.html">🧺 Cesta <span class="cart-count">0</span></a>
+    </div>
+  </nav>
+
+  <div id="page-trabaja" class="page active">
+    <section class="trabaja-hero">
+      <div class="trabaja-hero-bg"></div>
+      <div class="trabaja-hero-content">
+        <div class="eyebrow">Únete a la familia</div>
+        <h1>Trabaja con<br><em>nosotros</em></h1>
+        <p class="sub">Buscamos personas apasionadas por la gastronomía, el servicio de excelencia y la cultura asiática.</p>
+        <div class="hero-chips">
+          <div class="hero-chip"><strong>4</strong>Puestos abiertos</div>
+          <div class="hero-chip"><strong>37</strong>Años de historia</div>
+          <div class="hero-chip"><strong>+18</strong>Personas en equipo</div>
+        </div>
+        <div style="margin-top:36px"><button class="btn-primary" onclick="irA('.positions-section')">Ver puestos disponibles</button></div>
+      </div>
+      <div class="hero-scroll-down" onclick="irA('.values-strip')">Descubrir</div>
+    </section>
+
+    <div class="values-strip">
+      <div class="value-item"><div class="v-icon">🌱</div><h4>Crecimiento</h4><p>Formación continua y plan de carrera</p></div>
+      <div class="value-item"><div class="v-icon">🤝</div><h4>Equipo</h4><p>Ambiente familiar y multicultural</p></div>
+      <div class="value-item"><div class="v-icon">🍜</div><h4>Pasión</h4><p>Amor genuino por la cocina asiática</p></div>
+      <div class="value-item"><div class="v-icon">💎</div><h4>Calidad</h4><p>Estándares de excelencia en todo</p></div>
+    </div>
+
+    <div class="positions-section">
+      <div class="positions-title">Puestos disponibles</div>
+      <div class="position-card" onclick="togglePosition(this)"><div class="position-head"><h3>Cocinero/a Partida Wok</h3><div class="position-meta"><span class="pos-badge full">Jornada completa</span><span class="pos-arrow">∨</span></div></div><div class="position-body"><p>Buscamos un perfil con experiencia en cocina asiática o wok.</p><ul><li>Mínimo 2 años en cocina profesional</li><li>Conocimiento de técnicas chinas (vaporera, wok, ahumado)</li><li>Se valorará experiencia en restaurante asiático</li></ul></div></div>
+      <div class="position-card" onclick="togglePosition(this)"><div class="position-head"><h3>Ayudante de Cocina</h3><div class="position-meta"><span class="pos-badge part">Media jornada</span><span class="pos-arrow">∨</span></div></div><div class="position-body"><p>Apoyo en producción, mise en place y limpieza.</p><ul><li>Sin experiencia mínima requerida</li><li>Disponibilidad fines de semana y festivos</li></ul></div></div>
+      <div class="position-card" onclick="togglePosition(this)"><div class="position-head"><h3>Camarero/a de Sala</h3><div class="position-meta"><span class="pos-badge full">Jornada completa</span><span class="pos-arrow">∨</span></div></div><div class="position-body"><p>Atención al cliente en sala y asesoramiento sobre la carta.</p><ul><li>Experiencia mínima 1 año en sala</li><li>Dominio de español; inglés muy valorado</li></ul></div></div>
+      <div class="position-card" onclick="togglePosition(this)"><div class="position-head"><h3>Repartidor/a Para Llevar</h3><div class="position-meta"><span class="pos-badge part">Media jornada</span><span class="pos-arrow">∨</span></div></div><div class="position-body"><p>Gestión de pedidos para llevar, zona centro Santa Cruz.</p><ul><li>Carné de moto o coche (imprescindible)</li><li>Turno de tarde-noche (19h-00h)</li></ul></div></div>
+    </div>
+
+    <div class="apply-section">
+      <h2>Envíanos tu candidatura</h2>
+      <p>Rellena el formulario y nos pondremos en contacto contigo en 48 horas</p>
+      <div class="apply-form">
+        <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+        <div class="form-group"><label>Apellidos</label><input type="text" placeholder="Tus apellidos"></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
+        <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+34 600 000 000"></div>
+        <div class="form-group"><label>Puesto de interés</label><select><option value="">Selecciona un puesto</option><option>Cocinero/a Partida Wok</option><option>Ayudante de Cocina</option><option>Camarero/a de Sala</option><option>Repartidor/a Para Llevar</option><option>Candidatura espontánea</option></select></div>
+        <div class="form-group"><label>Disponibilidad</label><select><option value="">Selecciona</option><option>Inmediata</option><option>En 2 semanas</option><option>En 1 mes</option></select></div>
+        <div class="form-group full"><label>Cuéntanos sobre ti</label><textarea placeholder="Experiencia, motivación, por qué quieres unirte..."></textarea></div>
+        <button class="submit-btn" onclick="submitForm()">Enviar candidatura</button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-col"><h4>Contacto RRHH</h4><p>empleo@grandragondonado.es<br>922 000 001</p></div>
+      <div class="footer-col"><h4>Dónde estamos</h4><p>Calle Seda, 8<br>Santa Cruz de Tenerife</p></div>
+      <div class="footer-col"><h4>Síguenos</h4><p>@grandragondonado<br>Instagram · LinkedIn</p></div>
+    </footer>
+    <div class="footer-bottom">© 2025 Gran Dragón Dorado · Todos los derechos reservados</div>
+  </div>
+
+  <div class="order-toast" id="toast"><div id="toast-title">Candidatura enviada</div><p id="toast-msg">Nos pondremos en contacto en 48 horas.</p></div>
+
+  <script>
+    function irA(sel) {
+      const target = document.querySelector(sel);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function togglePosition(card) {
+      card.classList.toggle('open');
+    }
+
+    function submitForm() {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  </script>
+</body>
+</html>

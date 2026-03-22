@@ -240,11 +240,13 @@ nav.scrolled {
   background: var(--rojo);
   color: var(--crema);
   border: none;
+  display: inline-block;
   padding: 16px 38px;
   font-family: 'Cinzel', serif;
   font-size: .8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
   transition: all .25s;
   position: relative;
@@ -273,11 +275,13 @@ nav.scrolled {
   background: transparent;
   color: var(--dorado);
   border: 1px solid var(--dorado);
+  display: inline-block;
   padding: 16px 38px;
   font-family: 'Cinzel', serif;
   font-size: .8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
   transition: all .25s;
 }

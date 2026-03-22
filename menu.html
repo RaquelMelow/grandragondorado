@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gran Dragón Dorado | Menú</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">龙 GDD</a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="menu.html" class="active">Menú</a>
+      <a href="trabaja.html">Trabaja con nosotros</a>
+      <button class="cart-btn" onclick="irA('.basket-panel')">🧺 Cesta <span class="cart-count" id="cart-count">0</span></button>
+    </div>
+  </nav>
+
+  <div id="page-menu" class="page active">
+    <section class="menu-hero">
+      <div class="menu-hero-bg"></div>
+      <div class="menu-hero-content">
+        <div class="eyebrow">La Carta · 2025</div>
+        <h1>Menú<br><em>Imperial</em></h1>
+        <p class="sub">10 platos entre la tradición de Sichuan, el frescor cantonés y el producto local canario.</p>
+        <div class="hero-ctas"><button class="btn-primary" onclick="irA('#menu-tabs-anchor')">Ver la carta</button></div>
+      </div>
+      <div class="hero-scroll-down" onclick="irA('#menu-tabs-anchor')">Explorar</div>
+    </section>
+
+    <div class="menu-tabs" id="menu-tabs-anchor">
+      <button class="tab-btn active" onclick="filterMenu(this,'Todos')">Todos</button>
+      <button class="tab-btn" onclick="filterMenu(this,'Entrante')">Entrantes (2)</button>
+      <button class="tab-btn" onclick="filterMenu(this,'Carne')">Carnes (3)</button>
+      <button class="tab-btn" onclick="filterMenu(this,'Vegetariano')">Vegetariano (2)</button>
+      <button class="tab-btn" onclick="filterMenu(this,'Postre')">Postres (1)</button>
+      <button class="tab-btn" onclick="filterMenu(this,'Bebida')">Bebidas (2)</button>
+    </div>
+
+    <div class="menu-layout">
+      <div class="menu-items-grid" id="menu-grid"></div>
+      <div class="basket-panel">
+        <div class="basket-header"><h3>🧺 Tu pedido</h3></div>
+        <div class="basket-type-toggle">
+          <button class="toggle-opt active" id="tog-sala" onclick="setOrderType('sala',this)">🍽 En sala</button>
+          <button class="toggle-opt" id="tog-llevar" onclick="setOrderType('llevar',this)">🛵 Para llevar</button>
+        </div>
+        <div class="basket-items" id="basket-items"><div class="basket-empty"><span>🥢</span>Tu cesta está vacía</div></div>
+        <div class="basket-footer">
+          <div class="basket-total"><span>Total</span><span id="basket-total">0,00 €</span></div>
+          <button class="order-btn" id="order-btn" disabled onclick="sendOrder()">Enviar pedido</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-col"><h4>Dónde estamos</h4><p>Calle Seda, 8<br>Santa Cruz de Tenerife<br>922 000 000</p></div>
+      <div class="footer-col"><h4>Horario</h4><p>Lun-Vie: 13h-16h · 20h-00h<br>Sab-Dom: 13h-00h</p></div>
+      <div class="footer-col"><h4>Para llevar</h4><p>Pedido mínimo 15 €<br>Entrega en 25-35 min<br>Zona centro Santa Cruz</p></div>
+    </footer>
+    <div class="footer-bottom">© 2025 Gran Dragón Dorado · Todos los derechos reservados</div>
+  </div>
+
+  <div class="order-toast" id="toast"><div id="toast-title">Pedido enviado</div><p id="toast-msg">Preparamos tu pedido ahora mismo.</p></div>
+
+  <script>
+    const dishes = [
+      { id: 'p10', cat: 'Bebida', name: 'Cerveza Tsingtao', desc: 'Cerveza lager china de 33cl.', price: 3.20, spice: 0 },
+      { id: 'p09', cat: 'Bebida', name: 'Té de Jazmín', desc: 'Té tradicional servido en tetera de cerámica.', price: 3.50, spice: 0 },
+      { id: 'p08', cat: 'Postre', name: 'Plátano Frito con Miel', desc: 'Plátano rebozado servido caliente con miel china.', price: 4.00, spice: 0 },
+      { id: 'p01', cat: 'Entrante', name: 'Rollitos de Primavera', desc: 'Dos rollitos crujientes con verduras y carne.', price: 4.50, spice: 0 },
+      { id: 'p02', cat: 'Entrante', name: 'Dim Sum de Gambas', desc: 'Cuatro piezas al vapor rellenas de langostino fresco.', price: 6.50, spice: 1 },
+      { id: 'p07', cat: 'Vegetariano', name: 'Berenjenas con Salsa Yu Xiang', desc: 'Berenjenas tiernas salteadas con ajo y jengibre.', price: 7.50, spice: 2 },
+      { id: 'p06', cat: 'Vegetariano', name: 'Mapo Tofu (Opción Veggie)', desc: 'Tofu suave con salsa de soja fermentada y setas.', price: 8.90, spice: 4 },
+      { id: 'p03', cat: 'Carne', name: 'Pollo Kung Pao', desc: 'Pollo con cacahuetes, verduras y chile seco.', price: 9.50, spice: 3 },
+      { id: 'p04', cat: 'Carne', name: 'Ternera Szechuan', desc: 'Tiras de ternera salteadas con salsa picante especial.', price: 11.20, spice: 5 },
+      { id: 'p05', cat: 'Carne', name: 'Pato Laqueado a la Pekinesa', desc: 'Pato asado servido con crepes y salsa hoisin.', price: 18.00, spice: 0 }
+    ];
+
+    let cart = {};
+    let orderType = 'sala';
+
+    function renderMenu(cat = 'Todos') {
+      const grid = document.getElementById('menu-grid');
+      const filtered = dishes.filter(d => cat === 'Todos' || d.cat === cat);
+      grid.innerHTML = filtered.map(d => {
+        const spicyLabel = d.spice >= 4 ? '🌶 Muy picante' : (d.spice >= 2 ? '🌶 Picante' : '');
+        const dots = Array.from({ length: 5 }, (_, i) => `<div class="spice-dot ${i < d.spice ? 'hot' : ''}"></div>`).join('');
+        return `<div class="menu-card visible" data-cat="${d.cat}">
+          ${spicyLabel ? `<div class="spice-flag">${spicyLabel}</div>` : ''}
+          <div class="menu-card-top"><h3>${d.name}</h3><div class="card-price">${d.price.toFixed(2)} €</div></div>
+          <div class="card-desc">${d.desc}</div>
+          <div class="spice-dots">${dots}</div>
+          <button class="add-btn" onclick="addToCart('${d.id}')">+ Añadir</button>
+        </div>`;
+      }).join('');
+    }
+
+    function filterMenu(btn, cat) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderMenu(cat);
+    }
+
+    function addToCart(id) { cart[id] = (cart[id] || 0) + 1; renderCart(); }
+
+    function changeQty(id, delta) {
+      cart[id] = (cart[id] || 0) + delta;
+      if (cart[id] <= 0) delete cart[id];
+      renderCart();
+    }
+
+    function renderCart() {
+      const items = document.getElementById('basket-items');
+      const totalEl = document.getElementById('basket-total');
+      const btn = document.getElementById('order-btn');
+      const countEl = document.getElementById('cart-count');
+      const ids = Object.keys(cart);
+      countEl.textContent = ids.reduce((s, k) => s + cart[k], 0);
+
+      if (!ids.length) {
+        items.innerHTML = '<div class="basket-empty"><span>🥢</span>Tu cesta está vacía</div>';
+        totalEl.textContent = '0,00 €';
+        btn.disabled = true;
+        return;
+      }
+
+      let total = 0;
+      items.innerHTML = ids.map(id => {
+        const d = dishes.find(x => x.id === id);
+        const sub = d.price * cart[id];
+        total += sub;
+        return `<div class="basket-item"><div class="bi-name">${d.name}</div>
+          <div class="bi-qty"><button class="qty-btn" onclick="changeQty('${id}',-1)">-</button><span class="qty-num">${cart[id]}</span><button class="qty-btn" onclick="changeQty('${id}',1)">+</button></div>
+          <div class="bi-price">${sub.toFixed(2).replace('.', ',')} €</div></div>`;
+      }).join('');
+
+      totalEl.textContent = `${total.toFixed(2).replace('.', ',')} €`;
+      btn.disabled = false;
+    }
+
+    function setOrderType(type, btn) {
+      orderType = type;
+      document.querySelectorAll('.toggle-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('order-btn').textContent = type === 'sala' ? 'Enviar a cocina' : 'Confirmar para llevar';
+    }
+
+    function sendOrder() {
+      if (!Object.keys(cart).length) return;
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-title').textContent = orderType === 'sala' ? 'Pedido a cocina' : 'Pedido para llevar';
+      document.getElementById('toast-msg').textContent = orderType === 'sala' ? 'Tu pedido ha llegado a cocina.' : 'Listo en 25 minutos.';
+      toast.classList.add('show');
+      cart = {};
+      renderCart();
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
+    function irA(sel) {
+      const target = document.querySelector(sel);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    renderMenu();
+    renderCart();
+    setOrderType('sala', document.getElementById('tog-sala'));
+  </script>
+</body>
+</html>
