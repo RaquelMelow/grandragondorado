@@ -701,58 +701,6 @@ nav.scrolled {
   gap: 20px;
 }
 
-.menu-items-grid.hidden {
-  display: none;
-}
-
-.menu-view-switch {
-  max-width: 1200px;
-  margin: 0 auto 22px;
-  padding: 0 40px;
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.menu-view-label {
-  font-family: 'Cinzel', serif;
-  font-size: .74rem;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: rgba(250, 246, 238, .78);
-}
-
-.menu-view-actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.view-btn {
-  border: 1px solid rgba(201, 168, 76, .35);
-  background: rgba(255, 255, 255, .02);
-  color: rgba(250, 246, 238, .82);
-  padding: 7px 12px;
-  border-radius: 8px;
-  font-size: .78rem;
-  cursor: pointer;
-}
-
-.view-btn.active {
-  border-color: var(--dorado);
-  color: var(--dorado);
-  background: rgba(201, 168, 76, .12);
-}
-
-.menu-table-view {
-  display: none;
-}
-
-.menu-table-view.active {
-  display: block;
-}
-
 .menu-card {
   border: 1px solid rgba(201, 168, 76, .15);
   padding: 24px;
@@ -1534,83 +1482,75 @@ footer {
     font-size: 2rem;
   }
 }
-/* ── TABLA SIMPLE (MODO TRABAJADOR) ── */
+/* ── TABLA DEL MENU (XSLT) ── */
+.tabla-section {
+  margin: 40px 50px 30px;
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 16px;
+}
+
+.tabla-section h2 {
+  font-family: 'Cinzel', serif;
+  color: var(--dorado);
+  margin-bottom: 8px;
+}
+
+.tabla-section p {
+  color: rgba(250, 246, 238, .75);
+  margin-bottom: 16px;
+}
+
 .table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  border: 1px solid rgba(201, 168, 76, .22);
-  border-radius: 10px;
-  background: rgba(8, 8, 8, .6);
 }
 
 .menu-table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
   min-width: 760px;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: 'EB Garamond', serif;
   color: var(--crema);
-  font-size: .86rem;
-  line-height: 1.35;
 }
 
 .menu-table th,
 .menu-table td {
-  padding: 8px 10px;
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  padding: 10px 12px;
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .menu-table thead th {
-  background: rgba(15, 15, 15, .95);
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  background: rgba(139, 0, 0, 0.55);
   text-transform: uppercase;
-  font-size: .72rem;
-  letter-spacing: .8px;
-  color: rgba(250, 246, 238, .9);
+  font-family: 'Cinzel', serif;
+  font-size: .75rem;
+  letter-spacing: 1px;
 }
 
 .menu-table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, .035);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .menu-table tbody tr:hover {
-  background: rgba(201, 168, 76, .08);
+  background: rgba(201, 168, 76, 0.14);
 }
 
-.menu-table td.stock-low {
-  color: #ff7f7f;
+.menu-table tfoot td {
+  background: rgba(0, 0, 0, 0.45);
   font-weight: 700;
-  background: rgba(192, 57, 43, .14);
-}
-
-.menu-table td.stock-normal {
-  color: rgba(250, 246, 238, .88);
-}
-
-.menu-table td.stock-high {
-  color: #b9f4b9;
-}
-
-.menu-table-view .table-note {
-  margin: 8px 0 14px;
-  font-size: .78rem;
-  color: rgba(250, 246, 238, .65);
-}
-
-.stock-table-wrap {
-  margin-top: 6px;
 }
 
 @media (max-width: 768px) {
-  .menu-view-switch {
-    padding: 0 20px;
+  .tabla-section {
+    margin: 24px 20px;
+    padding: 18px;
   }
 
   .menu-table {
     min-width: 640px;
-    font-size: .82rem;
+    font-size: .92rem;
   }
 }
