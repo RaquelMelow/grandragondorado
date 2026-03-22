@@ -24,19 +24,22 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: auto;
-  /* Cambia hidden por auto */
+  overflow: hidden;
+  background: var(--negro);
+  color: var(--crema);
 }
 
 .page {
   display: none;
-  position: relative;
-  /* Cambia absolute por relative para que el flujo sea natural */
+  position: absolute;
+  inset: 0;
   width: 100%;
   min-height: 100vh;
-  /* Asegura que ocupe toda la pantalla */
-  overflow-y: visible;
-  /* Deja que el body maneje el scroll */
+  overflow-y: auto;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(139, 0, 0, .18) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(201, 168, 76, .08) 0%, transparent 50%),
+    linear-gradient(160deg, #0d0d0d 0%, #1a0a00 50%, #0d0d0d 100%);
 }
 
 .page.active {
@@ -146,6 +149,7 @@ nav.scrolled {
 }
 
 .hero-bg {
+  position: absolute;
   background-size: cover;
   background-position: center;
   inset: 0;
@@ -1272,6 +1276,7 @@ footer {
 }
 
 .footer-bottom {
+  background: #1a1a1a;
   text-align: center;
   padding: 20px;
   border-top: 1px solid rgba(255, 255, 255, .04);

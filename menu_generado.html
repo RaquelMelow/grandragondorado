@@ -55,88 +55,7 @@
                 €</strong><span>Plato mas caro</span>
 </div>
 </div>
-<section class="tabla-section"><h2>Tabla completa de platos</h2>
-<p>Vista tabular ordenada por nivel de picante (descendente) y precio (ascendente). Incluye filtros y calculos XPath.</p>
-<div class="table-wrap"><table class="menu-table">
-<thead><tr>
-<th>ID</th>
-<th>Categoria</th>
-<th>Plato</th>
-<th>Precio (€)</th>
-<th>Stock</th>
-<th>Picante</th>
-<th>Valor inventario (€)</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>p04</td>
-<td>Carne</td>
-<td>Ternera Szechuan</td>
-<td>11.20</td>
-<td>12</td>
-<td>5</td>
-<td>134.40</td>
-</tr>
-<tr>
-<td>p06</td>
-<td>Vegetariano</td>
-<td>Mapo Tofu (Opción Veggie)</td>
-<td>8.90</td>
-<td>10</td>
-<td>4</td>
-<td>89.00</td>
-</tr>
-<tr>
-<td>p03</td>
-<td>Carne</td>
-<td>Pollo Kung Pao</td>
-<td>9.50</td>
-<td>15</td>
-<td>3</td>
-<td>142.50</td>
-</tr>
-<tr>
-<td>p07</td>
-<td>Vegetariano</td>
-<td>Berenjenas con Salsa Yu Xiang</td>
-<td>7.50</td>
-<td>14</td>
-<td>2</td>
-<td>105.00</td>
-</tr>
-<tr>
-<td>p02</td>
-<td>Entrante</td>
-<td>Dim Sum de Gambas</td>
-<td>6.50</td>
-<td>20</td>
-<td>1</td>
-<td>130.00</td>
-</tr>
-<tr>
-<td>p08</td>
-<td>Postre</td>
-<td>Plátano Frito con Miel</td>
-<td>4.00</td>
-<td>25</td>
-<td>0</td>
-<td>100.00</td>
-</tr>
-<tr>
-<td>p01</td>
-<td>Entrante</td>
-<td>Rollitos de Primavera</td>
-<td>4.50</td>
-<td>50</td>
-<td>0</td>
-<td>225.00</td>
-</tr>
-</tbody>
-<tfoot><tr>
-<td colspan="6">Suma de precios filtrados (XPath: sum(menu/plato[stock &gt;= 10 and precio &gt;= 4]/precio))</td>
-<td>52.10</td>
-</tr></tfoot>
-</table></div></section><footer><div class="footer-col">
+<footer><div class="footer-col">
 <h4>Donde estamos</h4>
 <p>Calle Seda, 8<br>
                 Santa Cruz de Tenerife<br>
@@ -580,7 +499,7 @@ function goTo(page){
 }
 function irA(sel){
   var page=document.querySelector('.page.active');
-  var target=document.querySelector(sel);
+  var target=page ? page.querySelector(sel) : null;
   if(page && target){page.scrollTo({top:page.scrollTop+target.getBoundingClientRect().top-70,behavior:'smooth'});}
 }
 function togglePosition(card){card.classList.toggle('open');}
