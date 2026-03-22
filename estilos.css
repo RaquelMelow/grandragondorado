@@ -1,7 +1,7 @@
 /* ============================================================
    estilos.css — Gran Dragón Dorado
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap");
 
 :root {
   --rojo: #8b0000;
@@ -55,7 +55,7 @@ nav {
   align-items: center;
   padding: 18px 50px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), transparent);
-  transition: background .3s;
+  transition: background 0.3s;
 }
 
 nav.scrolled {
@@ -64,7 +64,7 @@ nav.scrolled {
 }
 
 .nav-logo {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   font-size: 1.1rem;
   color: var(--dorado);
   letter-spacing: 2px;
@@ -78,13 +78,13 @@ nav.scrolled {
 }
 
 .nav-links a {
-  font-family: 'Cinzel', serif;
-  font-size: .78rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.78rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(250, 246, 238, .75);
+  color: rgba(250, 246, 238, 0.75);
   text-decoration: none;
-  transition: color .2s;
+  transition: color 0.2s;
   cursor: pointer;
 }
 
@@ -98,11 +98,11 @@ nav.scrolled {
   border: 1px solid var(--dorado);
   color: var(--dorado);
   padding: 8px 18px;
-  font-family: 'Cinzel', serif;
-  font-size: .72rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.72rem;
   letter-spacing: 2px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -119,11 +119,11 @@ nav.scrolled {
   border-radius: 50%;
   width: 18px;
   height: 18px;
-  font-size: .65rem;
+  font-size: 0.65rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 /* ── HOME ── */
@@ -146,23 +146,33 @@ nav.scrolled {
 }
 
 .hero-bg {
+  position: absolute;
+  z-index: 0;
   background-size: cover;
   background-position: center;
   inset: 0;
   background:
-    radial-gradient(ellipse at 30% 60%, rgba(139, 0, 0, .18) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 30%, rgba(201, 168, 76, .08) 0%, transparent 50%),
+    radial-gradient(
+      ellipse at 30% 60%,
+      rgba(139, 0, 0, 0.18) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 30%,
+      rgba(201, 168, 76, 0.08) 0%,
+      transparent 50%
+    ),
     linear-gradient(160deg, #0d0d0d 0%, #1a0a00 50%, #0d0d0d 100%);
 }
 
 .hero-bg::before {
-  content: '\u9F99';
+  content: "\u9F99";
   position: absolute;
   right: -2%;
   top: 50%;
   transform: translateY(-50%);
   font-size: 42vw;
-  color: rgba(201, 168, 76, .04);
+  color: rgba(201, 168, 76, 0.04);
   line-height: 1;
   pointer-events: none;
   font-family: serif;
@@ -170,6 +180,7 @@ nav.scrolled {
 
 .hero-content {
   position: relative;
+  z-index: 1;
   text-align: center;
   animation: fadeUp 1.2s ease forwards;
 }
@@ -187,8 +198,8 @@ nav.scrolled {
 }
 
 .hero-eyebrow {
-  font-family: 'Cinzel', serif;
-  font-size: .75rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
   letter-spacing: 5px;
   color: var(--dorado);
   text-transform: uppercase;
@@ -201,15 +212,15 @@ nav.scrolled {
 
 .hero-eyebrow::before,
 .hero-eyebrow::after {
-  content: '';
+  content: "";
   width: 40px;
   height: 1px;
   background: var(--dorado);
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .hero h1 {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   font-size: clamp(2.5rem, 6vw, 5rem);
   color: var(--crema);
   line-height: 1.1;
@@ -221,10 +232,10 @@ nav.scrolled {
 }
 
 .hero-subtitle {
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   font-size: 1.25rem;
   font-style: italic;
-  color: rgba(250, 246, 238, .55);
+  color: rgba(250, 246, 238, 0.55);
   margin: 20px 0 40px;
   letter-spacing: 1px;
 }
@@ -241,23 +252,23 @@ nav.scrolled {
   color: var(--crema);
   border: none;
   padding: 16px 38px;
-  font-family: 'Cinzel', serif;
-  font-size: .8rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all .25s;
+  transition: all 0.25s;
   position: relative;
   overflow: hidden;
 }
 
 .btn-primary::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, .1);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateX(-100%);
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
 
 .btn-primary:hover::after {
@@ -274,21 +285,22 @@ nav.scrolled {
   color: var(--dorado);
   border: 1px solid var(--dorado);
   padding: 16px 38px;
-  font-family: 'Cinzel', serif;
-  font-size: .8rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all .25s;
+  transition: all 0.25s;
 }
 
 .btn-secondary:hover {
-  background: rgba(201, 168, 76, .1);
+  background: rgba(201, 168, 76, 0.1);
   transform: translateY(-2px);
 }
 
 .scroll-hint {
   position: absolute;
+  z-index: 1;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
@@ -296,10 +308,10 @@ nav.scrolled {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  font-family: 'Cinzel', serif;
-  font-size: .78rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.78rem;
   letter-spacing: 4px;
-  color: rgba(201, 168, 76, .55);
+  color: rgba(201, 168, 76, 0.55);
   animation: bounce 2s ease-in-out infinite;
   text-transform: uppercase;
   cursor: pointer;
@@ -307,7 +319,6 @@ nav.scrolled {
 }
 
 @keyframes bounce {
-
   0%,
   100% {
     transform: translateX(-50%) translateY(0);
@@ -319,16 +330,16 @@ nav.scrolled {
 }
 
 .scroll-hint::after {
-  content: '\2304';
+  content: "\2304";
   font-size: 1.8rem;
   line-height: 1;
-  color: rgba(201, 168, 76, .5);
+  color: rgba(201, 168, 76, 0.5);
 }
 
 .features {
-  background: rgba(201, 168, 76, .05);
-  border-top: 1px solid rgba(201, 168, 76, .15);
-  border-bottom: 1px solid rgba(201, 168, 76, .15);
+  background: rgba(201, 168, 76, 0.05);
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 40px 80px;
@@ -346,8 +357,8 @@ nav.scrolled {
 }
 
 .feature h3 {
-  font-family: 'Cinzel', serif;
-  font-size: .85rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
   letter-spacing: 2px;
   color: var(--dorado);
   margin-bottom: 8px;
@@ -355,8 +366,8 @@ nav.scrolled {
 }
 
 .feature p {
-  font-size: .95rem;
-  color: rgba(250, 246, 238, .55);
+  font-size: 0.95rem;
+  color: rgba(250, 246, 238, 0.55);
   font-style: italic;
 }
 
@@ -364,14 +375,14 @@ nav.scrolled {
 .xpath-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid rgba(201, 168, 76, .1);
-  border-bottom: 1px solid rgba(201, 168, 76, .1);
+  border-top: 1px solid rgba(201, 168, 76, 0.1);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
 }
 
 .xstat {
   padding: 30px 20px;
   text-align: center;
-  border-right: 1px solid rgba(201, 168, 76, .1);
+  border-right: 1px solid rgba(201, 168, 76, 0.1);
 }
 
 .xstat:last-child {
@@ -380,18 +391,18 @@ nav.scrolled {
 
 .xstat strong {
   display: block;
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   font-size: 1.6rem;
   color: var(--dorado);
   margin-bottom: 4px;
 }
 
 .xstat span {
-  font-family: 'Cinzel', serif;
-  font-size: .65rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.65rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(250, 246, 238, .35);
+  color: rgba(250, 246, 238, 0.35);
 }
 
 /* ── MENÚ PAGE ── */
@@ -412,19 +423,27 @@ nav.scrolled {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 60% 40%, rgba(139, 0, 0, .22) 0%, transparent 55%),
-    radial-gradient(ellipse at 20% 70%, rgba(201, 168, 76, .07) 0%, transparent 50%),
+    radial-gradient(
+      ellipse at 60% 40%,
+      rgba(139, 0, 0, 0.22) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 20% 70%,
+      rgba(201, 168, 76, 0.07) 0%,
+      transparent 50%
+    ),
     linear-gradient(170deg, #0d0d0d 0%, #120500 55%, #0d0d0d 100%);
 }
 
 .menu-hero-bg::before {
-  content: '\u98DF';
+  content: "\u98DF";
   position: absolute;
   right: -4%;
   top: 50%;
   transform: translateY(-50%);
   font-size: 48vw;
-  color: rgba(201, 168, 76, .035);
+  color: rgba(201, 168, 76, 0.035);
   line-height: 1;
   pointer-events: none;
   font-family: serif;
@@ -437,8 +456,8 @@ nav.scrolled {
 }
 
 .menu-hero-content .eyebrow {
-  font-family: 'Cinzel', serif;
-  font-size: .75rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
   letter-spacing: 5px;
   color: var(--dorado);
   text-transform: uppercase;
@@ -451,15 +470,15 @@ nav.scrolled {
 
 .menu-hero-content .eyebrow::before,
 .menu-hero-content .eyebrow::after {
-  content: '';
+  content: "";
   width: 40px;
   height: 1px;
   background: var(--dorado);
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .menu-hero-content h1 {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   font-size: clamp(2.5rem, 5.5vw, 4.5rem);
   color: var(--crema);
   line-height: 1.1;
@@ -472,10 +491,10 @@ nav.scrolled {
 }
 
 .menu-hero-content .sub {
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   font-size: 1.2rem;
   font-style: italic;
-  color: rgba(250, 246, 238, .5);
+  color: rgba(250, 246, 238, 0.5);
   letter-spacing: 1px;
   margin-bottom: 42px;
 }
@@ -489,10 +508,10 @@ nav.scrolled {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  font-family: 'Cinzel', serif;
-  font-size: .78rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.78rem;
   letter-spacing: 4px;
-  color: rgba(201, 168, 76, .55);
+  color: rgba(201, 168, 76, 0.55);
   animation: bounce 2s ease-in-out infinite;
   text-transform: uppercase;
   cursor: pointer;
@@ -500,10 +519,10 @@ nav.scrolled {
 }
 
 .hero-scroll-down::after {
-  content: '\2304';
+  content: "\2304";
   font-size: 1.8rem;
   line-height: 1;
-  color: rgba(201, 168, 76, .5);
+  color: rgba(201, 168, 76, 0.5);
 }
 
 .menu-tabs-anchor {
@@ -516,20 +535,20 @@ nav.scrolled {
   padding: 0 40px;
   margin-bottom: 50px;
   flex-wrap: wrap;
-  border-bottom: 1px solid rgba(201, 168, 76, .15);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
 }
 
 .tab-btn {
-  font-family: 'Cinzel', serif;
-  font-size: .72rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.72rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(250, 246, 238, .4);
+  color: rgba(250, 246, 238, 0.4);
   background: none;
   border: none;
   padding: 14px 24px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
 }
@@ -560,10 +579,10 @@ nav.scrolled {
 }
 
 .menu-card {
-  border: 1px solid rgba(201, 168, 76, .15);
+  border: 1px solid rgba(201, 168, 76, 0.15);
   padding: 24px;
-  background: rgba(255, 255, 255, .02);
-  transition: all .25s;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.25s;
   position: relative;
   overflow: hidden;
   display: none;
@@ -574,8 +593,8 @@ nav.scrolled {
 }
 
 .menu-card:hover {
-  border-color: rgba(201, 168, 76, .35);
-  background: rgba(139, 0, 0, .06);
+  border-color: rgba(201, 168, 76, 0.35);
+  background: rgba(139, 0, 0, 0.06);
 }
 
 .spice-flag {
@@ -584,8 +603,8 @@ nav.scrolled {
   right: 0;
   background: var(--rojo);
   padding: 4px 10px;
-  font-size: .65rem;
-  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-family: "Cinzel", serif;
   letter-spacing: 1px;
   color: #fff;
 }
@@ -598,15 +617,15 @@ nav.scrolled {
 }
 
 .menu-card h3 {
-  font-family: 'Cinzel', serif;
-  font-size: .95rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
   color: var(--crema);
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   padding-right: 60px;
 }
 
 .menu-card .card-price {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   color: var(--dorado);
   font-size: 1.1rem;
   white-space: nowrap;
@@ -614,8 +633,8 @@ nav.scrolled {
 
 .menu-card .card-desc {
   font-style: italic;
-  font-size: .88rem;
-  color: rgba(250, 246, 238, .45);
+  font-size: 0.88rem;
+  color: rgba(250, 246, 238, 0.45);
   line-height: 1.5;
   margin-bottom: 16px;
 }
@@ -630,7 +649,7 @@ nav.scrolled {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: rgba(250, 246, 238, .1);
+  background: rgba(250, 246, 238, 0.1);
 }
 
 .spice-dot.hot {
@@ -640,14 +659,14 @@ nav.scrolled {
 .add-btn {
   width: 100%;
   background: transparent;
-  border: 1px solid rgba(201, 168, 76, .3);
+  border: 1px solid rgba(201, 168, 76, 0.3);
   color: var(--dorado);
   padding: 10px;
-  font-family: 'Cinzel', serif;
-  font-size: .72rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.72rem;
   letter-spacing: 2px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
   text-transform: uppercase;
 }
 
@@ -661,22 +680,22 @@ nav.scrolled {
 .basket-panel {
   position: sticky;
   top: 100px;
-  border: 1px solid rgba(201, 168, 76, .25);
-  background: rgba(10, 5, 0, .6);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  background: rgba(10, 5, 0, 0.6);
   backdrop-filter: blur(10px);
 }
 
 .basket-header {
   padding: 20px 24px;
-  border-bottom: 1px solid rgba(201, 168, 76, .15);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .basket-header h3 {
-  font-family: 'Cinzel', serif;
-  font-size: .85rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--dorado);
@@ -685,25 +704,25 @@ nav.scrolled {
 .basket-type-toggle {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid rgba(201, 168, 76, .1);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
 }
 
 .toggle-opt {
   padding: 12px;
   text-align: center;
-  font-family: 'Cinzel', serif;
-  font-size: .68rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.68rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all .2s;
-  color: rgba(250, 246, 238, .35);
+  transition: all 0.2s;
+  color: rgba(250, 246, 238, 0.35);
   border: none;
   background: none;
 }
 
 .toggle-opt.active {
-  background: rgba(201, 168, 76, .08);
+  background: rgba(201, 168, 76, 0.08);
   color: var(--dorado);
 }
 
@@ -718,22 +737,22 @@ nav.scrolled {
 }
 
 .basket-items::-webkit-scrollbar-thumb {
-  background: rgba(201, 168, 76, .3);
+  background: rgba(201, 168, 76, 0.3);
 }
 
 .basket-empty {
   text-align: center;
   padding: 40px 20px;
-  color: rgba(250, 246, 238, .25);
+  color: rgba(250, 246, 238, 0.25);
   font-style: italic;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .basket-empty span {
   display: block;
   font-size: 2.5rem;
   margin-bottom: 12px;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .basket-item {
@@ -741,12 +760,12 @@ nav.scrolled {
   align-items: center;
   gap: 12px;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, .04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .bi-name {
   flex: 1;
-  font-size: .85rem;
+  font-size: 0.85rem;
   color: var(--crema);
 }
 
@@ -759,40 +778,40 @@ nav.scrolled {
 .qty-btn {
   width: 22px;
   height: 22px;
-  border: 1px solid rgba(201, 168, 76, .3);
+  border: 1px solid rgba(201, 168, 76, 0.3);
   background: none;
   color: var(--dorado);
-  font-size: .9rem;
+  font-size: 0.9rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all .15s;
-  font-family: 'Cinzel', serif;
+  transition: all 0.15s;
+  font-family: "Cinzel", serif;
 }
 
 .qty-btn:hover {
-  background: rgba(201, 168, 76, .1);
+  background: rgba(201, 168, 76, 0.1);
 }
 
 .qty-num {
-  font-family: 'Cinzel', serif;
-  font-size: .85rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
   color: var(--crema);
   min-width: 16px;
   text-align: center;
 }
 
 .bi-price {
-  font-family: 'Cinzel', serif;
-  font-size: .85rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
   color: var(--dorado);
   white-space: nowrap;
 }
 
 .basket-footer {
   padding: 16px 24px;
-  border-top: 1px solid rgba(201, 168, 76, .15);
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
 }
 
 .basket-total {
@@ -802,15 +821,15 @@ nav.scrolled {
 }
 
 .basket-total span:first-child {
-  font-family: 'Cinzel', serif;
-  font-size: .75rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(250, 246, 238, .5);
+  color: rgba(250, 246, 238, 0.5);
 }
 
 .basket-total span:last-child {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 1.2rem;
   color: var(--dorado);
 }
@@ -821,12 +840,12 @@ nav.scrolled {
   border: none;
   color: var(--crema);
   padding: 14px;
-  font-family: 'Cinzel', serif;
-  font-size: .75rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .order-btn:hover {
@@ -834,7 +853,7 @@ nav.scrolled {
 }
 
 .order-btn:disabled {
-  opacity: .4;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
@@ -846,13 +865,13 @@ nav.scrolled {
   border: 1px solid var(--dorado);
   padding: 20px 30px;
   z-index: 9999;
-  font-family: 'Cinzel', serif;
-  font-size: .8rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
   letter-spacing: 1px;
   color: var(--dorado);
   transform: translateY(100px);
   opacity: 0;
-  transition: all .4s;
+  transition: all 0.4s;
   max-width: 320px;
 }
 
@@ -862,11 +881,11 @@ nav.scrolled {
 }
 
 .order-toast p {
-  color: rgba(250, 246, 238, .6);
-  font-family: 'EB Garamond', serif;
+  color: rgba(250, 246, 238, 0.6);
+  font-family: "EB Garamond", serif;
   font-style: italic;
   margin-top: 6px;
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
 /* ── TRABAJA PAGE ── */
@@ -887,32 +906,45 @@ nav.scrolled {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 40% 55%, rgba(139, 0, 0, .18) 0%, transparent 55%),
-    radial-gradient(ellipse at 75% 25%, rgba(201, 168, 76, .08) 0%, transparent 50%),
+    radial-gradient(
+      ellipse at 40% 55%,
+      rgba(139, 0, 0, 0.18) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 75% 25%,
+      rgba(201, 168, 76, 0.08) 0%,
+      transparent 50%
+    ),
     linear-gradient(150deg, #0d0d0d 0%, #0a0a14 55%, #0d0d0d 100%);
 }
 
 .trabaja-hero-bg::before {
-  content: '\u4EBA';
+  content: "\u4EBA";
   position: absolute;
   left: -2%;
   top: 50%;
   transform: translateY(-50%);
   font-size: 52vw;
-  color: rgba(201, 168, 76, .03);
+  color: rgba(201, 168, 76, 0.03);
   line-height: 1;
   pointer-events: none;
   font-family: serif;
 }
 
 .trabaja-hero-bg::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: 15%;
   bottom: 15%;
   width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(201, 168, 76, .15), transparent);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(201, 168, 76, 0.15),
+    transparent
+  );
 }
 
 .trabaja-hero-content {
@@ -924,8 +956,8 @@ nav.scrolled {
 }
 
 .trabaja-hero-content .eyebrow {
-  font-family: 'Cinzel', serif;
-  font-size: .75rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
   letter-spacing: 5px;
   color: var(--dorado);
   text-transform: uppercase;
@@ -938,15 +970,15 @@ nav.scrolled {
 
 .trabaja-hero-content .eyebrow::before,
 .trabaja-hero-content .eyebrow::after {
-  content: '';
+  content: "";
   width: 40px;
   height: 1px;
   background: var(--dorado);
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .trabaja-hero-content h1 {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   font-size: clamp(2.2rem, 5vw, 4rem);
   color: var(--crema);
   line-height: 1.15;
@@ -959,10 +991,10 @@ nav.scrolled {
 }
 
 .trabaja-hero-content .sub {
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   font-size: 1.2rem;
   font-style: italic;
-  color: rgba(250, 246, 238, .5);
+  color: rgba(250, 246, 238, 0.5);
   max-width: 540px;
   margin: 0 auto 40px;
   line-height: 1.7;
@@ -977,12 +1009,12 @@ nav.scrolled {
 }
 
 .hero-chip {
-  border: 1px solid rgba(201, 168, 76, .25);
+  border: 1px solid rgba(201, 168, 76, 0.25);
   padding: 10px 22px;
-  font-family: 'Cinzel', serif;
-  font-size: .7rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
   letter-spacing: 2px;
-  color: rgba(250, 246, 238, .45);
+  color: rgba(250, 246, 238, 0.45);
   text-transform: uppercase;
 }
 
@@ -991,21 +1023,21 @@ nav.scrolled {
   font-size: 1.4rem;
   color: var(--dorado);
   margin-bottom: 2px;
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
 }
 
 .values-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid rgba(201, 168, 76, .1);
-  border-bottom: 1px solid rgba(201, 168, 76, .1);
+  border-top: 1px solid rgba(201, 168, 76, 0.1);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
   margin: 0 0 60px;
 }
 
 .value-item {
   padding: 32px 20px;
   text-align: center;
-  border-right: 1px solid rgba(201, 168, 76, .1);
+  border-right: 1px solid rgba(201, 168, 76, 0.1);
 }
 
 .value-item:last-child {
@@ -1018,8 +1050,8 @@ nav.scrolled {
 }
 
 .value-item h4 {
-  font-family: 'Cinzel', serif;
-  font-size: .75rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
   letter-spacing: 2px;
   color: var(--dorado);
   text-transform: uppercase;
@@ -1027,8 +1059,8 @@ nav.scrolled {
 }
 
 .value-item p {
-  font-size: .85rem;
-  color: rgba(250, 246, 238, .4);
+  font-size: 0.85rem;
+  color: rgba(250, 246, 238, 0.4);
   font-style: italic;
 }
 
@@ -1039,25 +1071,25 @@ nav.scrolled {
 }
 
 .positions-title {
-  font-family: 'Cinzel', serif;
-  font-size: .75rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
   letter-spacing: 3px;
   color: var(--dorado);
   text-transform: uppercase;
   margin-bottom: 24px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(201, 168, 76, .15);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
 }
 
 .position-card {
-  border: 1px solid rgba(201, 168, 76, .12);
+  border: 1px solid rgba(201, 168, 76, 0.12);
   margin-bottom: 16px;
-  transition: all .2s;
+  transition: all 0.2s;
   overflow: hidden;
 }
 
 .position-card:hover {
-  border-color: rgba(201, 168, 76, .3);
+  border-color: rgba(201, 168, 76, 0.3);
 }
 
 .position-head {
@@ -1066,17 +1098,17 @@ nav.scrolled {
   align-items: center;
   padding: 20px 24px;
   cursor: pointer;
-  background: rgba(255, 255, 255, .01);
-  transition: background .2s;
+  background: rgba(255, 255, 255, 0.01);
+  transition: background 0.2s;
 }
 
 .position-head:hover {
-  background: rgba(255, 255, 255, .03);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .position-head h3 {
-  font-family: 'Cinzel', serif;
-  font-size: .9rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.9rem;
   letter-spacing: 1px;
   color: var(--crema);
 }
@@ -1088,8 +1120,8 @@ nav.scrolled {
 }
 
 .pos-badge {
-  font-family: 'Cinzel', serif;
-  font-size: .65rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.65rem;
   letter-spacing: 2px;
   padding: 4px 10px;
   border: 1px solid;
@@ -1102,14 +1134,14 @@ nav.scrolled {
 }
 
 .pos-badge.part {
-  border-color: rgba(201, 168, 76, .4);
-  color: rgba(201, 168, 76, .6);
+  border-color: rgba(201, 168, 76, 0.4);
+  color: rgba(201, 168, 76, 0.6);
 }
 
 .pos-arrow {
   color: var(--dorado);
   font-size: 1.2rem;
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
 
 .position-card.open .pos-arrow {
@@ -1119,8 +1151,8 @@ nav.scrolled {
 .position-body {
   display: none;
   padding: 0 24px 24px;
-  border-top: 1px solid rgba(201, 168, 76, .08);
-  background: rgba(139, 0, 0, .03);
+  border-top: 1px solid rgba(201, 168, 76, 0.08);
+  background: rgba(139, 0, 0, 0.03);
 }
 
 .position-card.open .position-body {
@@ -1128,8 +1160,8 @@ nav.scrolled {
 }
 
 .position-body p {
-  font-size: .95rem;
-  color: rgba(250, 246, 238, .6);
+  font-size: 0.95rem;
+  color: rgba(250, 246, 238, 0.6);
   line-height: 1.7;
   margin: 16px 0 12px;
   font-style: italic;
@@ -1141,14 +1173,14 @@ nav.scrolled {
 }
 
 .position-body ul li {
-  font-size: .9rem;
-  color: rgba(250, 246, 238, .5);
+  font-size: 0.9rem;
+  color: rgba(250, 246, 238, 0.5);
   padding: 4px 0 4px 16px;
   position: relative;
 }
 
 .position-body ul li::before {
-  content: '\2014';
+  content: "\2014";
   position: absolute;
   left: 0;
   color: var(--dorado);
@@ -1161,14 +1193,14 @@ nav.scrolled {
 }
 
 .apply-section h2 {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   font-size: 1.6rem;
   color: var(--crema);
   margin-bottom: 8px;
 }
 
-.apply-section>p {
-  color: rgba(250, 246, 238, .45);
+.apply-section > p {
+  color: rgba(250, 246, 238, 0.45);
   font-style: italic;
   margin-bottom: 40px;
 }
@@ -1190,31 +1222,31 @@ nav.scrolled {
 }
 
 .form-group label {
-  font-family: 'Cinzel', serif;
-  font-size: .68rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.68rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(250, 246, 238, .45);
+  color: rgba(250, 246, 238, 0.45);
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  background: rgba(255, 255, 255, .03);
-  border: 1px solid rgba(201, 168, 76, .2);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(201, 168, 76, 0.2);
   color: var(--crema);
   padding: 12px 16px;
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   font-size: 1rem;
   outline: none;
-  transition: border-color .2s;
+  transition: border-color 0.2s;
   appearance: none;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: rgba(201, 168, 76, .5);
+  border-color: rgba(201, 168, 76, 0.5);
 }
 
 .form-group select option {
@@ -1232,12 +1264,12 @@ nav.scrolled {
   border: none;
   color: var(--crema);
   padding: 16px;
-  font-family: 'Cinzel', serif;
-  font-size: .8rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all .25s;
+  transition: all 0.25s;
   margin-top: 10px;
 }
 
@@ -1247,8 +1279,8 @@ nav.scrolled {
 
 /* ── FOOTER ── */
 footer {
-  background: rgba(0, 0, 0, .5);
-  border-top: 1px solid rgba(201, 168, 76, .1);
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(201, 168, 76, 0.1);
   padding: 40px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1256,8 +1288,8 @@ footer {
 }
 
 .footer-col h4 {
-  font-family: 'Cinzel', serif;
-  font-size: .72rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.72rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--dorado);
@@ -1265,8 +1297,8 @@ footer {
 }
 
 .footer-col p {
-  font-size: .9rem;
-  color: rgba(250, 246, 238, .4);
+  font-size: 0.9rem;
+  color: rgba(250, 246, 238, 0.4);
   line-height: 1.8;
   font-style: italic;
 }
@@ -1274,10 +1306,10 @@ footer {
 .footer-bottom {
   text-align: center;
   padding: 20px;
-  border-top: 1px solid rgba(255, 255, 255, .04);
-  font-size: .78rem;
-  color: rgba(250, 246, 238, .2);
-  font-family: 'Cinzel', serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.78rem;
+  color: rgba(250, 246, 238, 0.2);
+  font-family: "Cinzel", serif;
   letter-spacing: 2px;
 }
 
