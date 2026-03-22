@@ -193,129 +193,12 @@
             <button class="tab-btn" data-cat="Bebida" onclick="filterMenu(this,'Bebida')">              Bebidas (<xsl:value-of select="$nBebidas"/>
               )            </button>
           </div>
-          <div class="menu-view-switch" aria-label="Selector de vista del menu">
-            <span class="menu-view-label">Modo visible:</span>
-            <div class="menu-view-actions">
-              <button class="view-btn active" id="view-client-btn" onclick="setMenuView('cliente', this)">Vista cliente</button>
-              <button class="view-btn" id="view-worker-btn" onclick="setMenuView('trabajador', this)">Vista trabajador</button>
-            </div>
-          </div>
           <div class="menu-layout">
             <div class="menu-items-grid" id="menu-grid">          <!-- FILTRO stock>0 + ORDEN precio asc -->
               <xsl:for-each select="menu/plato[stock &gt; 0]">
                 <xsl:sort select="precio" data-type="number" order="ascending"/>
                 <xsl:apply-templates select="."/>
               </xsl:for-each>
-            </div>
-            <div id="menu-table-view" class="menu-table-view" aria-labelledby="menu-table-title">
-              <h2 id="menu-table-title">Vista rápida interna</h2>
-              <div class="table-wrap">
-                <table class="menu-table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Nombre</th>
-                      <th>Categoría</th>
-                      <th>Precio</th>
-                      <th>Stock</th>
-                      <th>Picante</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <xsl:for-each select="menu/plato">
-                      <xsl:sort select="@categoria" data-type="text" order="ascending"/>
-                      <xsl:sort select="nombre" data-type="text" order="ascending"/>
-                      <tr>
-                        <td>
-                          <xsl:value-of select="@id"/>
-                        </td>
-                        <td>
-                          <xsl:value-of select="nombre"/>
-                        </td>
-                        <td>
-                          <xsl:value-of select="@categoria"/>
-                        </td>
-                        <td>
-                          <xsl:value-of select="format-number(precio, '#.00')"/>
-                          <xsl:text> €</xsl:text>
-                        </td>
-                        <td>
-                          <xsl:attribute name="class">
-                            <xsl:choose>
-                              <xsl:when test="stock &lt; 10">stock-low</xsl:when>
-                              <xsl:when test="stock &gt;= 25">stock-high</xsl:when>
-                              <xsl:otherwise>stock-normal</xsl:otherwise>
-                            </xsl:choose>
-                          </xsl:attribute>
-                          <xsl:value-of select="stock"/>
-                        </td>
-                        <td>
-                          <xsl:choose>
-                            <xsl:when test="picante/@nivel = 0">No</xsl:when>
-                            <xsl:when test="picante/@nivel &lt;= 2">Suave</xsl:when>
-                            <xsl:when test="picante/@nivel &lt;= 4">Picante</xsl:when>
-                            <xsl:otherwise>Muy picante</xsl:otherwise>
-                          </xsl:choose>
-                        </td>
-                      </tr>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-              </div>
-              <p class="table-note">Ordenado por categoría y nombre. Para control interno rápido, cambia a orden por stock.</p>
-              <div class="table-wrap stock-table-wrap">
-                <table class="menu-table menu-table-stock">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Nombre</th>
-                      <th>Categoría</th>
-                      <th>Precio</th>
-                      <th>Stock</th>
-                      <th>Picante</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <xsl:for-each select="menu/plato">
-                      <xsl:sort select="stock" data-type="number" order="ascending"/>
-                      <xsl:sort select="nombre" data-type="text" order="ascending"/>
-                      <tr>
-                        <td>
-                          <xsl:value-of select="@id"/>
-                        </td>
-                        <td>
-                          <xsl:value-of select="nombre"/>
-                        </td>
-                        <td>
-                          <xsl:value-of select="@categoria"/>
-                        </td>
-                        <td>
-                          <xsl:value-of select="format-number(precio, '#.00')"/>
-                          <xsl:text> €</xsl:text>
-                        </td>
-                        <td>
-                          <xsl:attribute name="class">
-                            <xsl:choose>
-                              <xsl:when test="stock &lt; 10">stock-low</xsl:when>
-                              <xsl:when test="stock &gt;= 25">stock-high</xsl:when>
-                              <xsl:otherwise>stock-normal</xsl:otherwise>
-                            </xsl:choose>
-                          </xsl:attribute>
-                          <xsl:value-of select="stock"/>
-                        </td>
-                        <td>
-                          <xsl:choose>
-                            <xsl:when test="picante/@nivel = 0">No</xsl:when>
-                            <xsl:when test="picante/@nivel &lt;= 2">Suave</xsl:when>
-                            <xsl:when test="picante/@nivel &lt;= 4">Picante</xsl:when>
-                            <xsl:otherwise>Muy picante</xsl:otherwise>
-                          </xsl:choose>
-                        </td>
-                      </tr>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-              </div>
             </div>
             <div class="basket-panel">
               <div class="basket-header">
@@ -338,6 +221,51 @@
               </div>
             </div>
           </div>
+          <section class="tabla-section" aria-labelledby="tabla-menu-titulo">
+            <h2 id="tabla-menu-titulo">Vista tabla del menú</h2>
+            <p>Listado completo ordenado por precio de menor a mayor.</p>
+            <div class="table-wrap">
+              <table class="menu-table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Picante</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <xsl:for-each select="menu/plato">
+                    <xsl:sort select="precio" data-type="number" order="ascending"/>
+                    <tr>
+                      <td>
+                        <xsl:value-of select="nombre"/>
+                      </td>
+                      <td>
+                        <xsl:value-of select="@categoria"/>
+                      </td>
+                      <td>
+                        <xsl:value-of select="format-number(precio, '#.00')"/>
+                        <xsl:text> €</xsl:text>
+                      </td>
+                      <td>
+                        <xsl:value-of select="stock"/>
+                      </td>
+                      <td>
+                        <xsl:choose>
+                          <xsl:when test="picante/@nivel = 0">No</xsl:when>
+                          <xsl:when test="picante/@nivel &lt;= 2">Suave</xsl:when>
+                          <xsl:when test="picante/@nivel &lt;= 4">Picante</xsl:when>
+                          <xsl:otherwise>Muy picante</xsl:otherwise>
+                        </xsl:choose>
+                      </td>
+                    </tr>
+                  </xsl:for-each>
+                </tbody>
+              </table>
+            </div>
+          </section>
           <footer>
             <div class="footer-col">
               <h4>Donde estamos</h4>
@@ -691,16 +619,6 @@ function irA(sel){
   if(page && target){page.scrollTo({top:page.scrollTop+target.getBoundingClientRect().top-70,behavior:'smooth'});}
 }
 function togglePosition(card){card.classList.toggle('open');}
-function setMenuView(mode,btn){
-  var grid=document.querySelector('.menu-items-grid');
-  var table=document.getElementById('menu-table-view');
-  var viewButtons=document.querySelectorAll('.menu-view-actions .view-btn');
-  var isWorker=mode==='trabajador';
-  if(grid){grid.classList.toggle('hidden',isWorker);}
-  if(table){table.classList.toggle('active',isWorker);}
-  viewButtons.forEach(function(b){b.classList.remove('active');});
-  if(btn){btn.classList.add('active');}
-}
 function submitForm(){
   var toast=document.getElementById('toast'); document.getElementById('toast-title').textContent='Candidatura enviada'; document.getElementById('toast-msg').textContent='Nos pondremos en contacto en 48 horas.';
   toast.classList.add('show');
@@ -712,11 +630,10 @@ function watchScroll(){
       if(p.classList.contains('active')){
         document.getElementById('main-nav').classList.toggle('scrolled',p.scrollTop>60);
       }
-    },{passive:true}); }); } window.goTo=goTo; window.irA=irA; window.filterMenu=filterMenu; window.addToCart=addToCart; window.changeQty=changeQty; window.setOrderType=setOrderType; window.sendOrder=sendOrder; window.togglePosition=togglePosition; window.setMenuView=setMenuView; window.submitForm=submitForm;
+    },{passive:true}); }); } window.goTo=goTo; window.irA=irA; window.filterMenu=filterMenu; window.addToCart=addToCart; window.changeQty=changeQty; window.setOrderType=setOrderType; window.sendOrder=sendOrder; window.togglePosition=togglePosition; window.submitForm=submitForm;
 document.addEventListener('click',closeMiniCartOnOutsideClick);
 renderCart();
 setOrderType('sala',document.getElementById('tog-sala'));
-setMenuView('cliente',document.getElementById('view-client-btn'));
 watchScroll();
 //]]></script>
       </body>
