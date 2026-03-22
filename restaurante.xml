@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE menu SYSTEM "restaurante.dtd">
+<?xml-stylesheet type="text/xsl" href="estilos.xsl"?>
+<menu nombre="Gran Dragón Dorado" direccion="Calle Seda, 8">
+    <plato id="p01" categoria="Entrante">
+        <nombre>Rollitos de Primavera</nombre>
+        <descripcion>Dos rollitos crujientes con verduras y carne.</descripcion>
+        <precio currency="EUR">4.50</precio>
+        <stock>50</stock>
+        <picante nivel="0" />
+    </plato>
+    <plato id="p02" categoria="Entrante">
+        <nombre>Dim Sum de Gambas</nombre>
+        <descripcion>Cuatro piezas al vapor rellenas de langostino fresco.</descripcion>
+        <precio currency="EUR">6.50</precio>
+        <stock>20</stock>
+        <picante nivel="1" />
+    </plato>
+
+    <plato id="p03" categoria="Carne">
+        <nombre>Pollo Kung Pao</nombre>
+        <descripcion>Pollo con cacahuetes, verduras y chile seco.</descripcion>
+        <precio currency="EUR">9.50</precio>
+        <stock>15</stock>
+        <picante nivel="3" />
+    </plato>
+    <plato id="p04" categoria="Carne">
+        <nombre>Ternera Szechuan</nombre>
+        <descripcion>Tiras de ternera salteadas con salsa picante especial.</descripcion>
+        <precio currency="EUR">11.20</precio>
+        <stock>12</stock>
+        <picante nivel="5" />
+    </plato>
+    <plato id="p05" categoria="Carne">
+        <nombre>Pato Laqueado a la Pekinesa</nombre>
+        <descripcion>Pato asado servido con crepes y salsa hoisin.</descripcion>
+        <precio currency="EUR">18.00</precio>
+        <stock>8</stock>
+        <picante nivel="0" />
+    </plato>
+
+    <plato id="p06" categoria="Vegetariano">
+        <nombre>Mapo Tofu (Opción Veggie)</nombre>
+        <descripcion>Tofu suave con salsa de soja fermentada y setas.</descripcion>
+        <precio currency="EUR">8.90</precio>
+        <stock>10</stock>
+        <picante nivel="4" />
+    </plato>
+    <plato id="p07" categoria="Vegetariano">
+        <nombre>Berenjenas con Salsa Yu Xiang</nombre>
+        <descripcion>Berenjenas tiernas salteadas con ajo y jengibre.</descripcion>
+        <precio currency="EUR">7.50</precio>
+        <stock>14</stock>
+        <picante nivel="2" />
+    </plato>
+
+    <plato id="p08" categoria="Postre">
+        <nombre>Plátano Frito con Miel</nombre>
+        <descripcion>Plátano rebozado servido caliente con miel china.</descripcion>
+        <precio currency="EUR">4.00</precio>
+        <stock>25</stock>
+        <picante nivel="0" />
+    </plato>
+
+    <plato id="p09" categoria="Bebida">
+        <nombre>Té de Jazmín</nombre>
+        <descripcion>Té tradicional servido en tetera de cerámica.</descripcion>
+        <precio currency="EUR">3.50</precio>
+        <stock>100</stock>
+        <picante nivel="0" />
+    </plato>
+    <plato id="p10" categoria="Bebida">
+        <nombre>Cerveza Tsingtao</nombre>
+        <descripcion>Cerveza lager china de 33cl.</descripcion>
+        <precio currency="EUR">3.20</precio>
+        <stock>40</stock>
+        <picante nivel="0" />
+    </plato>
+</menu>

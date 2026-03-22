@@ -1,0 +1,13 @@
+{
+    "xml.fileAssociations": [
+        {
+            "pattern": "**/*.xsl",
+            "systemId": "http://www.w3.org/1999/XSL/Transform"
+        }
+    ],
+    "xml.validation.enabled": false,
+    "css.validate": false,
+    "[xsl]": {
+        "editor.defaultFormatter": "deltaxml.xslt-xpath"
+    }
+}

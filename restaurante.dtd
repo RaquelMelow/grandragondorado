@@ -1,0 +1,34 @@
+<!-- ============================================================
+     restaurante.dtd
+     Definición de tipo de documento para el menú del
+     Gran Dragón Dorado.
+     ============================================================ -->
+
+<!-- Elemento raíz: contiene uno o más platos -->
+<!ELEMENT menu (plato+)>
+<!ATTLIST menu
+    nombre    CDATA #REQUIRED
+    direccion CDATA #IMPLIED>
+
+<!-- Cada plato tiene exactamente estos hijos en este orden -->
+<!ELEMENT plato (nombre, descripcion, precio, stock, picante)>
+<!ATTLIST plato
+    id        ID                                          #REQUIRED
+    categoria (Entrante|Carne|Vegetariano|Postre|Bebida) #REQUIRED>
+
+<!-- Elementos de contenido de texto -->
+<!ELEMENT nombre      (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+
+<!-- Precio: siempre en EUR (valor fijo) -->
+<!ELEMENT precio (#PCDATA)>
+<!ATTLIST precio
+    currency CDATA #FIXED "EUR">
+
+<!-- Stock disponible -->
+<!ELEMENT stock (#PCDATA)>
+
+<!-- Picante: elemento vacío, nivel de 0 (nada) a 5 (extremo) -->
+<!ELEMENT picante EMPTY>
+<!ATTLIST picante
+    nivel (0|1|2|3|4|5) "0">
