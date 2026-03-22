@@ -53,8 +53,26 @@
             <a onclick="goTo('home')" data-page="home" class="active">Inicio</a>
             <a onclick="goTo('menu')" data-page="menu">Menu</a>
             <a onclick="goTo('trabaja')" data-page="trabaja">Trabaja con nosotros</a>
-            <button class="cart-btn" onclick="goTo('menu')">              &#x1F9FA; Cesta              <span class="cart-count" id="cart-count">0</span>
-            </button>
+            <div class="mini-cart-wrap">
+              <button class="cart-btn" onclick="toggleMiniCart(event)">                &#x1F9FA; Cesta                <span class="cart-count" id="cart-count">0</span>
+              </button>
+              <div id="mini-cart-dropdown" class="mini-cart-dropdown closed">
+                <div class="mini-cart-head">
+                  <strong>Resumen rapido</strong>
+                  <button class="mini-cart-close" onclick="toggleMiniCart(event)" aria-label="Cerrar mini-cesta">&#x2715;</button>
+                </div>
+                <div id="mini-cart-items" class="mini-cart-items">
+                  <div class="mini-cart-empty">Tu cesta esta vacia.</div>
+                </div>
+                <div class="mini-cart-foot">
+                  <div class="mini-cart-total">
+                    <span>Total</span>
+                    <strong id="mini-cart-total">0,00 EUR</strong>
+                  </div>
+                  <button class="mini-cart-full-btn" onclick="goTo('menu')">Ir a pedido completo</button>
+                </div>
+              </div>
+            </div>
           </div>
         </nav>        <!-- ======================================================
              HOME
@@ -482,7 +500,7 @@
           <xsl:text>];</xsl:text>
         </script><!-- Script 2: logica JS (CDATA protege los caracteres especiales) -->
         <script>//  <![CDATA[
-var cart={},orderType='sala';
+var cart={},orderType='sala',miniCartOpen=false,miniCartAutoCloseTimer=null;
 function filterMenu(btn,cat){
   document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
@@ -490,7 +508,48 @@ function filterMenu(btn,cat){
     c.classList.toggle('visible', cat==='Todos' || c.getAttribute('data-cat')===cat);
   });
 }
-function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart();}
+function toggleMiniCart(event){
+  if(event){event.stopPropagation();}
+  var dropdown=document.getElementById('mini-cart-dropdown');
+  if(!dropdown){return;}
+  miniCartOpen=!miniCartOpen;
+  dropdown.classList.toggle('open',miniCartOpen);
+  dropdown.classList.toggle('closed',!miniCartOpen);
+  if(!miniCartOpen && miniCartAutoCloseTimer){
+    clearTimeout(miniCartAutoCloseTimer);
+    miniCartAutoCloseTimer=null;
+  }
+}
+function openMiniCartOnAdd(){
+  var dropdown=document.getElementById('mini-cart-dropdown');
+  if(!dropdown){return;}
+  miniCartOpen=true;
+  dropdown.classList.add('open');
+  dropdown.classList.remove('closed');
+  if(miniCartAutoCloseTimer){clearTimeout(miniCartAutoCloseTimer);}
+  miniCartAutoCloseTimer=setTimeout(function(){
+    miniCartOpen=false;
+    dropdown.classList.remove('open');
+    dropdown.classList.add('closed');
+  },4000);
+}
+function closeMiniCartOnOutsideClick(event){
+  if(!miniCartOpen){return;}
+  var wrap=document.querySelector('.mini-cart-wrap');
+  if(wrap && !wrap.contains(event.target)){
+    miniCartOpen=false;
+    var dropdown=document.getElementById('mini-cart-dropdown');
+    if(dropdown){
+      dropdown.classList.remove('open');
+      dropdown.classList.add('closed');
+    }
+    if(miniCartAutoCloseTimer){
+      clearTimeout(miniCartAutoCloseTimer);
+      miniCartAutoCloseTimer=null;
+    }
+  }
+}
+function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart();openMiniCartOnAdd();}
 function changeQty(id,delta){ cart[id]=(cart[id]||0)+delta;
   if(cart[id]<=0){delete cart[id];}
   renderCart();
@@ -500,8 +559,12 @@ function renderCart(){
   var totalEl=document.getElementById('basket-total');
   var btn=document.getElementById('order-btn');
   var countEl=document.getElementById('cart-count');
+  var miniItems=document.getElementById('mini-cart-items');
+  var miniTotalEl=document.getElementById('mini-cart-total');
   var ids=Object.keys(cart); countEl.textContent=ids.reduce(function(s,k){return s+cart[k];},0);
   if(!ids.length){ items.innerHTML='<div class="basket-empty"><span>&#x1F962;</span>Tu cesta esta vacia</div>'; totalEl.textContent='0,00 EUR'; btn.disabled=true;
+    if(miniItems){miniItems.innerHTML='<div class="mini-cart-empty">Tu cesta esta vacia.</div>';}
+    if(miniTotalEl){miniTotalEl.textContent='0,00 EUR';}
     return;
   }
   var total=0; items.innerHTML=ids.map(function(id){
@@ -516,7 +579,21 @@ function renderCart(){
       +'</div>'
       +'<div class="bi-price">'+sub.toFixed(2).replace('.',',')+' EUR</div>'
     +'</div>';
-  }).join(''); totalEl.textContent=total.toFixed(2).replace('.',',')+' EUR'; btn.disabled=false;
+  }).join('');
+  if(miniItems){
+    miniItems.innerHTML=ids.map(function(id){
+      var d=dishes.find(function(x){return x.id===id;});
+      var sub=d.price*cart[id];
+      return '<div class="mini-cart-row">'
+        +'<span class="mini-cart-name">'+d.name+'</span>'
+        +'<span class="mini-cart-qty">x'+cart[id]+'</span>'
+        +'<span class="mini-cart-sub">'+sub.toFixed(2).replace('.',',')+' EUR</span>'
+      +'</div>';
+    }).join('');
+  }
+  totalEl.textContent=total.toFixed(2).replace('.',',')+' EUR';
+  if(miniTotalEl){miniTotalEl.textContent=total.toFixed(2).replace('.',',')+' EUR';}
+  btn.disabled=false;
 }
 function setOrderType(type,btn){ orderType=type;
   document.querySelectorAll('.toggle-opt').forEach(function(b){b.classList.remove('active');});
@@ -554,6 +631,7 @@ function watchScroll(){
         document.getElementById('main-nav').classList.toggle('scrolled',p.scrollTop>60);
       }
     },{passive:true}); }); } window.goTo=goTo; window.irA=irA; window.filterMenu=filterMenu; window.addToCart=addToCart; window.changeQty=changeQty; window.setOrderType=setOrderType; window.sendOrder=sendOrder; window.togglePosition=togglePosition; window.submitForm=submitForm;
+document.addEventListener('click',closeMiniCartOnOutsideClick);
 renderCart();
 setOrderType('sala',document.getElementById('tog-sala'));
 watchScroll();
