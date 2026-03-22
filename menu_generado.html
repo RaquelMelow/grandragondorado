@@ -8,9 +8,9 @@
 <link rel="stylesheet" type="text/css" href="estilos.css">
 </head>
 <body>
-<nav id="main-nav"><div class="nav-logo" onclick="goTo('home')">龙 GDD</div>
+<nav id="main-nav"><div class="nav-logo" onclick="goTo('home'); return false;">龙 GDD</div>
 <div class="nav-links">
-<a onclick="goTo('home')" data-page="home" class="active">Inicio</a><a onclick="goTo('menu')" data-page="menu">Menu</a><a onclick="goTo('trabaja')" data-page="trabaja">Trabaja con nosotros</a><button class="cart-btn" onclick="goTo('menu')">              🧺 Cesta              <span class="cart-count" id="cart-count">0</span></button>
+<a href="#" onclick="goTo('home'); return false;" data-page="home" class="active">Inicio</a><a href="#" onclick="goTo('menu'); return false;" data-page="menu">Menu</a><a href="#" onclick="goTo('trabaja'); return false;" data-page="trabaja">Trabaja con nosotros</a><button type="button" class="cart-btn" onclick="goTo('menu')">              🧺 Cesta              <span class="cart-count" id="cart-count">0</span></button>
 </div></nav><div id="page-home" class="page active">
 <section class="hero"><div class="hero-bg"></div>
 <div class="hero-content">
@@ -19,7 +19,7 @@
 </h1>
 <p class="hero-subtitle">Cocina imperial china con alma canaria</p>
 <div class="hero-ctas">
-<button class="btn-primary" onclick="goTo('menu')">Ver carta</button><button class="btn-secondary" onclick="goTo('trabaja')">Trabaja con nosotros</button>
+<button type="button" class="btn-primary" onclick="goTo('menu')">Ver carta</button><button type="button" class="btn-secondary" onclick="goTo('trabaja')">Trabaja con nosotros</button>
 </div>
 </div>
 <div class="scroll-hint" onclick="irA('.features')">Descubre</div></section><div class="features">
@@ -162,7 +162,7 @@
 </h1>
 <p class="sub">10
                 platos entre la tradicion de Sichuan, el frescor cantones y el producto local canario.              </p>
-<div class="hero-ctas"><button class="btn-primary" onclick="irA('#menu-tabs-anchor')">Ver la carta</button></div>
+<div class="hero-ctas"><button type="button" class="btn-primary" onclick="irA('#menu-tabs-anchor')">Ver la carta</button></div>
 </div>
 <div class="hero-scroll-down" onclick="irA('#menu-tabs-anchor')">Explorar</div></section><div class="menu-tabs" id="menu-tabs-anchor">
 <button class="tab-btn active" data-cat="Todos" onclick="filterMenu(this,'Todos')">Todos</button><button class="tab-btn" data-cat="Entrante" onclick="filterMenu(this,'Entrante')">              Entrantes (2
@@ -378,7 +378,7 @@
 <div class="hero-chip">
 <strong>+18</strong>Personas en equipo</div>
 </div>
-<div style="margin-top:36px"><button class="btn-primary" onclick="irA('.positions-section')">Ver puestos disponibles</button></div>
+<div style="margin-top:36px"><button type="button" class="btn-primary" onclick="irA('.positions-section')">Ver puestos disponibles</button></div>
 </div>
 <div class="hero-scroll-down" onclick="irA('.values-strip')">Descubrir</div></section><div class="values-strip">
 <div class="value-item">
