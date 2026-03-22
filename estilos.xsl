@@ -48,12 +48,12 @@
       </head>
       <body>        <!-- NAV -->
         <nav id="main-nav">
-          <div class="nav-logo" onclick="goTo('home')">&#x9F99; GDD</div>
+          <div class="nav-logo" onclick="goTo('home'); return false;">&#x9F99; GDD</div>
           <div class="nav-links">
-            <a onclick="goTo('home')" data-page="home" class="active">Inicio</a>
-            <a onclick="goTo('menu')" data-page="menu">Menu</a>
-            <a onclick="goTo('trabaja')" data-page="trabaja">Trabaja con nosotros</a>
-            <button class="cart-btn" onclick="goTo('menu')">              &#x1F9FA; Cesta              <span class="cart-count" id="cart-count">0</span>
+            <a href="#" onclick="goTo('home'); return false;" data-page="home" class="active">Inicio</a>
+            <a href="#" onclick="goTo('menu'); return false;" data-page="menu">Menu</a>
+            <a href="#" onclick="goTo('trabaja'); return false;" data-page="trabaja">Trabaja con nosotros</a>
+            <button type="button" class="cart-btn" onclick="goTo('menu')">              &#x1F9FA; Cesta              <span class="cart-count" id="cart-count">0</span>
             </button>
           </div>
         </nav>        <!-- ======================================================
@@ -70,8 +70,8 @@
               </h1>
               <p class="hero-subtitle">Cocina imperial china con alma canaria</p>
               <div class="hero-ctas">
-                <button class="btn-primary" onclick="goTo('menu')">Ver carta</button>
-                <button class="btn-secondary" onclick="goTo('trabaja')">Trabaja con nosotros</button>
+                <button type="button" class="btn-primary" onclick="goTo('menu')">Ver carta</button>
+                <button type="button" class="btn-secondary" onclick="goTo('trabaja')">Trabaja con nosotros</button>
               </div>
             </div>
             <div class="scroll-hint" onclick="irA('.features')">Descubre</div>
@@ -119,6 +119,49 @@
               <span>Plato mas caro</span>
             </div>
           </div>
+
+          <section class="tabla-section">
+            <h2>Tabla completa de platos</h2>
+            <p>Vista tabular ordenada por nivel de picante (descendente) y precio (ascendente). Incluye filtros y calculos XPath.</p>
+            <div class="table-wrap">
+              <table class="menu-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Plato</th>
+                    <th>Precio (€)</th>
+                    <th>Stock</th>
+                    <th>Picante</th>
+                    <th>Valor inventario (€)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <xsl:for-each select="menu/plato[stock &gt;= 10 and precio &gt;= 4]">
+                    <xsl:sort select="picante/@nivel" data-type="number" order="descending"/>
+                    <xsl:sort select="precio" data-type="number" order="ascending"/>
+                    <tr>
+                      <td><xsl:value-of select="@id"/></td>
+                      <td><xsl:value-of select="@categoria"/></td>
+                      <td><xsl:value-of select="nombre"/></td>
+                      <td><xsl:value-of select="format-number(precio,'#.00')"/></td>
+                      <td><xsl:value-of select="stock"/></td>
+                      <td><xsl:value-of select="picante/@nivel"/></td>
+                      <td><xsl:value-of select="format-number(precio * stock,'#.00')"/></td>
+                    </tr>
+                  </xsl:for-each>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="6">Suma de precios filtrados (XPath: sum(menu/plato[stock &gt;= 10 and precio &gt;= 4]/precio))</td>
+                    <td>
+                      <xsl:value-of select="format-number(sum(menu/plato[stock &gt;= 10 and precio &gt;= 4]/precio),'#.00')"/>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </section>
           <footer>
             <div class="footer-col">
               <h4>Donde estamos</h4>
@@ -156,7 +199,7 @@
                 <xsl:value-of select="$totalPlatos"/>
                 platos entre la tradicion de Sichuan, el frescor cantones y el producto local canario.              </p>
               <div class="hero-ctas">
-                <button class="btn-primary" onclick="irA('#menu-tabs-anchor')">Ver la carta</button>
+                <button type="button" class="btn-primary" onclick="irA('#menu-tabs-anchor')">Ver la carta</button>
               </div>
             </div>
             <div class="hero-scroll-down" onclick="irA('#menu-tabs-anchor')">Explorar</div>
@@ -246,7 +289,7 @@
                   <strong>+18</strong>Personas en equipo</div>
               </div>
               <div style="margin-top:36px">
-                <button class="btn-primary" onclick="irA('.positions-section')">Ver puestos disponibles</button>
+                <button type="button" class="btn-primary" onclick="irA('.positions-section')">Ver puestos disponibles</button>
               </div>
             </div>
             <div class="hero-scroll-down" onclick="irA('.values-strip')">Descubrir</div>

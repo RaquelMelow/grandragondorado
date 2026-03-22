@@ -1,618 +1,604 @@
 <html lang="es">
-
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gran Dragón Dorado</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" type="text/css" href="estilos.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gran Dragón Dorado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" type="text/css" href="estilos.css">
 </head>
-
 <body>
-  <nav id="main-nav">
-    <div class="nav-logo" onclick="goTo('home')">龙 GDD</div>
-    <div class="nav-links">
-      <a onclick="goTo('home')" data-page="home" class="active">Inicio</a><a onclick="goTo('menu')"
-        data-page="menu">Menu</a><a onclick="goTo('trabaja')" data-page="trabaja">Trabaja con nosotros</a><button
-        class="cart-btn" onclick="goTo('menu')">
-        🧺 Cesta
-        <span class="cart-count" id="cart-count">0</span></button>
-    </div>
-  </nav>
-  <div id="page-home" class="page active">
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-content">
-        <div class="hero-eyebrow">
-          Desde 1988 · Calle Seda, 8</div>
-        <h1>Gran Dragon<br><span>Dorado</span>
-        </h1>
-        <p class="hero-subtitle">Cocina imperial china con alma canaria</p>
-        <div class="hero-ctas">
-          <button class="btn-primary" onclick="goTo('menu')">Ver carta</button><button class="btn-secondary"
-            onclick="goTo('trabaja')">Trabaja con nosotros</button>
-        </div>
-      </div>
-      <div class="scroll-hint" onclick="irA('.features')">Descubre</div>
-    </section>
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">🥢</div>
-        <h3>Cocina Autentica</h3>
-        <p>Recetas de Sichuan y Canton, sin concesiones</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🛵</div>
-        <h3>Para Llevar</h3>
-        <p>Pedido online listo en 25 minutos</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🫖</div>
-        <h3>Te Ceremonial</h3>
-        <p>Seleccion de tes importados de Fujian</p>
-      </div>
-    </div>
-    <div class="xpath-stats">
-      <div class="xstat">
-        <strong>10</strong><span>Platos en carta</span>
-      </div>
-      <div class="xstat">
-        <strong>7.68€</strong><span>Precio medio</span>
-      </div>
-      <div class="xstat">
-        <strong>3</strong><span>Platos picantes</span>
-      </div>
-      <div class="xstat">
-        <strong>18.00€</strong><span>Plato mas caro</span>
-      </div>
-    </div>
-    <footer>
-      <div class="footer-col">
-        <h4>Donde estamos</h4>
-        <p>Calle Seda, 8<br>Santa Cruz de Tenerife<br>922 000 000</p>
-      </div>
-      <div class="footer-col">
-        <h4>Horario</h4>
-        <p>Lun-Vie: 13h-16h · 20h-00h<br>Sab-Dom: 13h-00h</p>
-      </div>
-      <div class="footer-col">
-        <h4>Siguenos</h4>
-        <p>@grandragondonado<br>Instagram · Facebook · TripAdvisor</p>
-      </div>
-    </footer>
-    <div class="footer-bottom">
-      © 2025 Gran Dragón Dorado · Todos los derechos reservados
-    </div>
-  </div>
-  <div id="page-menu" class="page">
-    <section class="menu-hero">
-      <div class="menu-hero-bg"></div>
-      <div class="menu-hero-content">
-        <div class="eyebrow">La Carta · 2025</div>
-        <h1>Menu<br><em>Imperial</em>
-        </h1>
-        <p class="sub">10
-          platos entre la tradicion de Sichuan, el frescor cantones y el producto local canario.
-        </p>
-        <div class="hero-ctas"><button class="btn-primary" onclick="irA('#menu-tabs-anchor')">Ver la carta</button>
-        </div>
-      </div>
-      <div class="hero-scroll-down" onclick="irA('#menu-tabs-anchor')">Explorar</div>
-    </section>
-    <div class="menu-tabs" id="menu-tabs-anchor">
-      <button class="tab-btn active" data-cat="Todos" onclick="filterMenu(this,'Todos')">Todos</button><button
-        class="tab-btn" data-cat="Entrante" onclick="filterMenu(this,'Entrante')">
-        Entrantes (2)
-      </button><button class="tab-btn" data-cat="Carne" onclick="filterMenu(this,'Carne')">
-        Carnes (3)
-      </button><button class="tab-btn" data-cat="Vegetariano" onclick="filterMenu(this,'Vegetariano')">
-        Vegetariano (2)
-      </button><button class="tab-btn" data-cat="Postre" onclick="filterMenu(this,'Postre')">
-        Postres (1)
-      </button><button class="tab-btn" data-cat="Bebida" onclick="filterMenu(this,'Bebida')">
-        Bebidas (2)
-      </button>
-    </div>
-    <div class="menu-layout">
-      <div class="menu-items-grid" id="menu-grid">
-        <div class="menu-card visible" data-cat="Bebida" data-valor="128.00">
-          <div class="menu-card-top">
-            <h3>Cerveza Tsingtao</h3>
-            <div class="card-price">3.20 €</div>
-          </div>
-          <div class="card-desc">Cerveza lager china de 33cl.</div>
-          <div class="spice-dots">
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p10')">
-            + Anadir
-          </button>
-        </div>
-        <div class="menu-card visible" data-cat="Bebida" data-valor="350.00">
-          <div class="menu-card-top">
-            <h3>Té de Jazmín</h3>
-            <div class="card-price">3.50 €</div>
-          </div>
-          <div class="card-desc">Té tradicional servido en tetera de cerámica.</div>
-          <div class="spice-dots">
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p09')">
-            + Anadir
-          </button>
-        </div>
-        <div class="menu-card visible" data-cat="Postre" data-valor="100.00">
-          <div class="menu-card-top">
-            <h3>Plátano Frito con Miel</h3>
-            <div class="card-price">4.00 €</div>
-          </div>
-          <div class="card-desc">Plátano rebozado servido caliente con miel china.</div>
-          <div class="spice-dots">
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p08')">
-            + Anadir
-          </button>
-        </div>
-        <div class="menu-card visible" data-cat="Entrante" data-valor="225.00">
-          <div class="menu-card-top">
-            <h3>Rollitos de Primavera</h3>
-            <div class="card-price">4.50 €</div>
-          </div>
-          <div class="card-desc">Dos rollitos crujientes con verduras y carne.</div>
-          <div class="spice-dots">
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p01')">
-            + Anadir
-          </button>
-        </div>
-        <div class="menu-card visible" data-cat="Entrante" data-valor="130.00">
-          <div class="menu-card-top">
-            <h3>Dim Sum de Gambas</h3>
-            <div class="card-price">6.50 €</div>
-          </div>
-          <div class="card-desc">Cuatro piezas al vapor rellenas de langostino fresco.</div>
-          <div class="spice-dots">
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p02')">
-            + Anadir
-          </button>
-        </div>
-        <div class="menu-card visible" data-cat="Vegetariano" data-valor="105.00">
-          <div class="spice-flag">🌶 Picante</div>
-          <div class="menu-card-top">
-            <h3>Berenjenas con Salsa Yu Xiang</h3>
-            <div class="card-price">7.50 €</div>
-          </div>
-          <div class="card-desc">Berenjenas tiernas salteadas con ajo y jengibre.</div>
-          <div class="spice-dots">
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p07')">
-            + Anadir
-          </button>
-        </div>
-        <div class="menu-card visible" data-cat="Vegetariano" data-valor="89.00">
-          <div class="spice-flag">🌶 Muy picante</div>
-          <div class="menu-card-top">
-            <h3>Mapo Tofu (Opción Veggie)</h3>
-            <div class="card-price">8.90 €</div>
-          </div>
-          <div class="card-desc">Tofu suave con salsa de soja fermentada y setas.</div>
-          <div class="spice-dots">
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p06')">
-            + Anadir
-          </button>
-        </div>
-        <div class="menu-card visible" data-cat="Carne" data-valor="142.50">
-          <div class="spice-flag">🌶 Picante</div>
-          <div class="menu-card-top">
-            <h3>Pollo Kung Pao</h3>
-            <div class="card-price">9.50 €</div>
-          </div>
-          <div class="card-desc">Pollo con cacahuetes, verduras y chile seco.</div>
-          <div class="spice-dots">
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p03')">
-            + Anadir
-          </button>
-        </div>
-        <div class="menu-card visible" data-cat="Carne" data-valor="134.40">
-          <div class="spice-flag">🌶 Muy picante</div>
-          <div class="menu-card-top">
-            <h3>Ternera Szechuan</h3>
-            <div class="card-price">11.20 €</div>
-          </div>
-          <div class="card-desc">Tiras de ternera salteadas con salsa picante especial.</div>
-          <div class="spice-dots">
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-            <div class="spice-dot hot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p04')">
-            + Anadir
-          </button>
-        </div>
-        <div class="menu-card visible" data-cat="Carne" data-valor="144.00">
-          <div class="menu-card-top">
-            <h3>Pato Laqueado a la Pekinesa</h3>
-            <div class="card-price">18.00 €</div>
-          </div>
-          <div class="card-desc">Pato asado servido con crepes y salsa hoisin.</div>
-          <div class="spice-dots">
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-            <div class="spice-dot"></div>
-          </div>
-          <button class="add-btn" onclick="addToCart('p05')">
-            + Anadir
-          </button>
-        </div>
-      </div>
-      <div class="basket-panel">
-        <div class="basket-header">
-          <h3>🧺 Tu pedido</h3>
-        </div>
-        <div class="basket-type-toggle">
-          <button class="toggle-opt active" id="tog-sala" onclick="setOrderType('sala',this)">
-            🍽 En sala
-          </button><button class="toggle-opt" id="tog-llevar" onclick="setOrderType('llevar',this)">
-            🛵 Para llevar
-          </button>
-        </div>
-        <div class="basket-items" id="basket-items">
-          <div class="basket-empty">
-            <span>🥢</span>Tu cesta esta vacia
-          </div>
-        </div>
-        <div class="basket-footer">
-          <div class="basket-total">
-            <span>Total</span><span id="basket-total">0,00 €</span>
-          </div>
-          <button class="order-btn" id="order-btn" disabled onclick="sendOrder()">
-            Enviar pedido
-          </button>
-        </div>
-      </div>
-    </div>
-    <footer>
-      <div class="footer-col">
-        <h4>Donde estamos</h4>
-        <p>Calle Seda, 8<br>Santa Cruz de Tenerife<br>922 000 000</p>
-      </div>
-      <div class="footer-col">
-        <h4>Horario</h4>
-        <p>Lun-Vie: 13h-16h · 20h-00h<br>Sab-Dom: 13h-00h</p>
-      </div>
-      <div class="footer-col">
-        <h4>Para llevar</h4>
-        <p>Pedidos minimo 15 €<br>Entrega en 25-35 min<br>Zona centro Santa Cruz</p>
-      </div>
-    </footer>
-    <div class="footer-bottom">
-      © 2025 Gran Dragón Dorado · Todos los derechos reservados
-    </div>
-  </div>
-  <div id="page-trabaja" class="page">
-    <section class="trabaja-hero">
-      <div class="trabaja-hero-bg"></div>
-      <div class="trabaja-hero-content">
-        <div class="eyebrow">Unete a la familia</div>
-        <h1>Trabaja con<br><em>nosotros</em>
-        </h1>
-        <p class="sub">
-          Buscamos personas apasionadas por la gastronomia, el servicio de excelencia y la cultura asiatica.
-        </p>
-        <div class="hero-chips">
-          <div class="hero-chip">
-            <strong>4</strong>Puestos abiertos
-          </div>
-          <div class="hero-chip">
-            <strong>37</strong>Anos de historia
-          </div>
-          <div class="hero-chip">
-            <strong>+18</strong>Personas en equipo
-          </div>
-        </div>
-        <div style="margin-top:36px"><button class="btn-primary" onclick="irA('.positions-section')">Ver puestos
-            disponibles</button></div>
-      </div>
-      <div class="hero-scroll-down" onclick="irA('.values-strip')">Descubrir</div>
-    </section>
-    <div class="values-strip">
-      <div class="value-item">
-        <div class="v-icon">🌱</div>
-        <h4>Crecimiento</h4>
-        <p>Formacion continua y plan de carrera</p>
-      </div>
-      <div class="value-item">
-        <div class="v-icon">🤝</div>
-        <h4>Equipo</h4>
-        <p>Ambiente familiar y multicultural</p>
-      </div>
-      <div class="value-item">
-        <div class="v-icon">🍜</div>
-        <h4>Pasion</h4>
-        <p>Amor genuino por la cocina asiatica</p>
-      </div>
-      <div class="value-item">
-        <div class="v-icon">💎</div>
-        <h4>Calidad</h4>
-        <p>Estandares de excelencia en todo</p>
-      </div>
-    </div>
-    <div class="positions-section">
-      <div class="positions-title">Puestos disponibles</div>
-      <div class="position-card" onclick="togglePosition(this)">
-        <div class="position-head">
-          <h3>Cocinero/a Partida Wok</h3>
-          <div class="position-meta">
-            <span class="pos-badge full">Jornada completa</span><span class="pos-arrow">∨</span>
-          </div>
-        </div>
-        <div class="position-body">
-          <p>Buscamos un perfil con experiencia en cocina asiatica o wok.</p>
-          <ul>
-            <li>Minimo 2 anos en cocina profesional</li>
-            <li>Conocimiento de tecnicas chinas (vaporera, wok, ahumado)</li>
-            <li>Se valorara experiencia en restaurante asiatico</li>
-          </ul>
-        </div>
-      </div>
-      <div class="position-card" onclick="togglePosition(this)">
-        <div class="position-head">
-          <h3>Ayudante de Cocina</h3>
-          <div class="position-meta">
-            <span class="pos-badge part">Media jornada</span><span class="pos-arrow">∨</span>
-          </div>
-        </div>
-        <div class="position-body">
-          <p>Apoyo en produccion, mise en place y limpieza.</p>
-          <ul>
-            <li>Sin experiencia minima requerida</li>
-            <li>Disponibilidad fines de semana y festivos</li>
-          </ul>
-        </div>
-      </div>
-      <div class="position-card" onclick="togglePosition(this)">
-        <div class="position-head">
-          <h3>Camarero/a de Sala</h3>
-          <div class="position-meta">
-            <span class="pos-badge full">Jornada completa</span><span class="pos-arrow">∨</span>
-          </div>
-        </div>
-        <div class="position-body">
-          <p>Atencion al cliente en sala y asesoramiento sobre la carta.</p>
-          <ul>
-            <li>Experiencia minima 1 ano en sala</li>
-            <li>Dominio de espanol; ingles muy valorado</li>
-          </ul>
-        </div>
-      </div>
-      <div class="position-card" onclick="togglePosition(this)">
-        <div class="position-head">
-          <h3>Repartidor/a Para Llevar</h3>
-          <div class="position-meta">
-            <span class="pos-badge part">Media jornada</span><span class="pos-arrow">∨</span>
-          </div>
-        </div>
-        <div class="position-body">
-          <p>Gestion de pedidos para llevar, zona centro Santa Cruz.</p>
-          <ul>
-            <li>Carne de moto o coche (imprescindible)</li>
-            <li>Turno de tarde-noche (19h-00h)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="apply-section">
-      <h2>Envianos tu candidatura</h2>
-      <p>Rellena el formulario y nos pondremos en contacto contigo en 48 horas</p>
-      <div class="apply-form">
-        <div class="form-group">
-          <label>Nombre</label><input type="text" placeholder="Tu nombre">
-        </div>
-        <div class="form-group">
-          <label>Apellidos</label><input type="text" placeholder="Tus apellidos">
-        </div>
-        <div class="form-group">
-          <label>Email</label><input type="email" placeholder="tu@email.com">
-        </div>
-        <div class="form-group">
-          <label>Telefono</label><input type="tel" placeholder="+34 600 000 000">
-        </div>
-        <div class="form-group">
-          <label>Puesto de interes</label><select>
-            <option value="">Selecciona un puesto</option>
-            <option>Cocinero/a Partida Wok</option>
-            <option>Ayudante de Cocina</option>
-            <option>Camarero/a de Sala</option>
-            <option>Repartidor/a Para Llevar</option>
-            <option>Candidatura espontanea</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Disponibilidad</label><select>
-            <option value="">Selecciona</option>
-            <option>Inmediata</option>
-            <option>En 2 semanas</option>
-            <option>En 1 mes</option>
-          </select>
-        </div>
-        <div class="form-group full">
-          <label>Cuentanos sobre ti</label><textarea
-            placeholder="Experiencia, motivacion, por que quieres unirte..."></textarea>
-        </div>
-        <button class="submit-btn" onclick="submitForm()">Enviar candidatura</button>
-      </div>
-    </div>
-    <footer>
-      <div class="footer-col">
-        <h4>Contacto RRHH</h4>
-        <p>empleo@grandragondonado.es<br>922 000 001</p>
-      </div>
-      <div class="footer-col">
-        <h4>Donde estamos</h4>
-        <p>Calle Seda, 8<br>Santa Cruz de Tenerife</p>
-      </div>
-      <div class="footer-col">
-        <h4>Siguenos</h4>
-        <p>@grandragondonado<br>Instagram · LinkedIn</p>
-      </div>
-    </footer>
-    <div class="footer-bottom">
-      © 2025 Gran Dragón Dorado · Todos los derechos reservados
-    </div>
-  </div>
-  <div class="order-toast" id="toast">
-    <div id="toast-title">Pedido enviado!</div>
-    <p id="toast-msg">Preparamos tu pedido ahora mismo.</p>
-  </div>
-  <script>var dishes = [{ id: 'p10', cat: 'Bebida', name: 'Cerveza Tsingtao', price: 3.20, spice: 0 }, { id: 'p09', cat: 'Bebida', name: 'Té de Jazmín', price: 3.50, spice: 0 }, { id: 'p08', cat: 'Postre', name: 'Plátano Frito con Miel', price: 4.00, spice: 0 }, { id: 'p01', cat: 'Entrante', name: 'Rollitos de Primavera', price: 4.50, spice: 0 }, { id: 'p02', cat: 'Entrante', name: 'Dim Sum de Gambas', price: 6.50, spice: 1 }, { id: 'p07', cat: 'Vegetariano', name: 'Berenjenas con Salsa Yu Xiang', price: 7.50, spice: 2 }, { id: 'p06', cat: 'Vegetariano', name: 'Mapo Tofu (Opción Veggie)', price: 8.90, spice: 4 }, { id: 'p03', cat: 'Carne', name: 'Pollo Kung Pao', price: 9.50, spice: 3 }, { id: 'p04', cat: 'Carne', name: 'Ternera Szechuan', price: 11.20, spice: 5 }, { id: 'p05', cat: 'Carne', name: 'Pato Laqueado a la Pekinesa', price: 18.00, spice: 0 }];</script>
-  <script>//
-    var cart = {}, orderType = 'sala';
-    function filterMenu(btn, cat) {
-      document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      document.querySelectorAll('.menu-card').forEach(function (c) {
-        c.classList.toggle('visible', cat === 'Todos' || c.getAttribute('data-cat') === cat);
-      });
-    }
-    function addToCart(id) { cart[id] = (cart[id] || 0) + 1; renderCart(); }
-    function changeQty(id, delta) {
-      cart[id] = (cart[id] || 0) + delta;
-      if (cart[id] <= 0) { delete cart[id]; }
-      renderCart();
-    }
-    function renderCart() {
-      var items = document.getElementById('basket-items');
-      var totalEl = document.getElementById('basket-total');
-      var btn = document.getElementById('order-btn');
-      var countEl = document.getElementById('cart-count');
-      var ids = Object.keys(cart);
-      countEl.textContent = ids.reduce(function (s, k) { return s + cart[k]; }, 0);
-      if (!ids.length) {
-        items.innerHTML = '<div class="basket-empty"><span>&#x1F962;</span>Tu cesta esta vacia</div>';
-        totalEl.textContent = '0,00 EUR';
-        btn.disabled = true;
-        return;
+<nav id="main-nav"><div class="nav-logo" onclick="goTo('home'); return false;">龙 GDD</div>
+<div class="nav-links">
+<a href="#" onclick="goTo('home'); return false;" data-page="home" class="active">Inicio</a><a href="#" onclick="goTo('menu'); return false;" data-page="menu">Menu</a><a href="#" onclick="goTo('trabaja'); return false;" data-page="trabaja">Trabaja con nosotros</a><button type="button" class="cart-btn" onclick="goTo('menu')">              🧺 Cesta              <span class="cart-count" id="cart-count">0</span></button>
+</div></nav><div id="page-home" class="page active">
+<section class="hero"><div class="hero-bg"></div>
+<div class="hero-content">
+<div class="hero-eyebrow">                Desde 1988 · Calle Seda, 8</div>
+<h1>Gran Dragon<br><span>Dorado</span>
+</h1>
+<p class="hero-subtitle">Cocina imperial china con alma canaria</p>
+<div class="hero-ctas">
+<button type="button" class="btn-primary" onclick="goTo('menu')">Ver carta</button><button type="button" class="btn-secondary" onclick="goTo('trabaja')">Trabaja con nosotros</button>
+</div>
+</div>
+<div class="scroll-hint" onclick="irA('.features')">Descubre</div></section><div class="features">
+<div class="feature">
+<div class="feature-icon">🥢</div>
+<h3>Cocina Autentica</h3>
+<p>Recetas de Sichuan y Canton, sin concesiones</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🛵</div>
+<h3>Para Llevar</h3>
+<p>Pedido online listo en 25 minutos</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🫖</div>
+<h3>Te Ceremonial</h3>
+<p>Seleccion de tes importados de Fujian</p>
+</div>
+</div>
+<div class="xpath-stats">
+<div class="xstat">
+<strong>10</strong><span>Platos en carta</span>
+</div>
+<div class="xstat">
+<strong>7.68
+                €</strong><span>Precio medio</span>
+</div>
+<div class="xstat">
+<strong>3</strong><span>Platos picantes</span>
+</div>
+<div class="xstat">
+<strong>18.00
+                €</strong><span>Plato mas caro</span>
+</div>
+</div>
+<section class="tabla-section"><h2>Tabla completa de platos</h2>
+<p>Vista tabular ordenada por nivel de picante (descendente) y precio (ascendente). Incluye filtros y calculos XPath.</p>
+<div class="table-wrap"><table class="menu-table">
+<thead><tr>
+<th>ID</th>
+<th>Categoria</th>
+<th>Plato</th>
+<th>Precio (€)</th>
+<th>Stock</th>
+<th>Picante</th>
+<th>Valor inventario (€)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>p04</td>
+<td>Carne</td>
+<td>Ternera Szechuan</td>
+<td>11.20</td>
+<td>12</td>
+<td>5</td>
+<td>134.40</td>
+</tr>
+<tr>
+<td>p06</td>
+<td>Vegetariano</td>
+<td>Mapo Tofu (Opción Veggie)</td>
+<td>8.90</td>
+<td>10</td>
+<td>4</td>
+<td>89.00</td>
+</tr>
+<tr>
+<td>p03</td>
+<td>Carne</td>
+<td>Pollo Kung Pao</td>
+<td>9.50</td>
+<td>15</td>
+<td>3</td>
+<td>142.50</td>
+</tr>
+<tr>
+<td>p07</td>
+<td>Vegetariano</td>
+<td>Berenjenas con Salsa Yu Xiang</td>
+<td>7.50</td>
+<td>14</td>
+<td>2</td>
+<td>105.00</td>
+</tr>
+<tr>
+<td>p02</td>
+<td>Entrante</td>
+<td>Dim Sum de Gambas</td>
+<td>6.50</td>
+<td>20</td>
+<td>1</td>
+<td>130.00</td>
+</tr>
+<tr>
+<td>p08</td>
+<td>Postre</td>
+<td>Plátano Frito con Miel</td>
+<td>4.00</td>
+<td>25</td>
+<td>0</td>
+<td>100.00</td>
+</tr>
+<tr>
+<td>p01</td>
+<td>Entrante</td>
+<td>Rollitos de Primavera</td>
+<td>4.50</td>
+<td>50</td>
+<td>0</td>
+<td>225.00</td>
+</tr>
+</tbody>
+<tfoot><tr>
+<td colspan="6">Suma de precios filtrados (XPath: sum(menu/plato[stock &gt;= 10 and precio &gt;= 4]/precio))</td>
+<td>52.10</td>
+</tr></tfoot>
+</table></div></section><footer><div class="footer-col">
+<h4>Donde estamos</h4>
+<p>Calle Seda, 8<br>
+                Santa Cruz de Tenerife<br>
+                922 000 000</p>
+</div>
+<div class="footer-col">
+<h4>Horario</h4>
+<p>Lun-Vie: 13h-16h · 20h-00h<br>
+                Sab-Dom: 13h-00h</p>
+</div>
+<div class="footer-col">
+<h4>Siguenos</h4>
+<p>@grandragondonado<br>
+                Instagram · Facebook · TripAdvisor</p>
+</div></footer><div class="footer-bottom">            © 2025 Gran Dragón Dorado
+            · Todos los derechos reservados          </div>
+</div>
+<div id="page-menu" class="page">
+<section class="menu-hero"><div class="menu-hero-bg"></div>
+<div class="menu-hero-content">
+<div class="eyebrow">La Carta · 2025</div>
+<h1>Menu<br><em>Imperial</em>
+</h1>
+<p class="sub">10
+                platos entre la tradicion de Sichuan, el frescor cantones y el producto local canario.              </p>
+<div class="hero-ctas"><button type="button" class="btn-primary" onclick="irA('#menu-tabs-anchor')">Ver la carta</button></div>
+</div>
+<div class="hero-scroll-down" onclick="irA('#menu-tabs-anchor')">Explorar</div></section><div class="menu-tabs" id="menu-tabs-anchor">
+<button class="tab-btn active" data-cat="Todos" onclick="filterMenu(this,'Todos')">Todos</button><button class="tab-btn" data-cat="Entrante" onclick="filterMenu(this,'Entrante')">              Entrantes (2
+              )            </button><button class="tab-btn" data-cat="Carne" onclick="filterMenu(this,'Carne')">              Carnes (3
+              )            </button><button class="tab-btn" data-cat="Vegetariano" onclick="filterMenu(this,'Vegetariano')">              Vegetariano (2
+              )            </button><button class="tab-btn" data-cat="Postre" onclick="filterMenu(this,'Postre')">              Postres (1
+              )            </button><button class="tab-btn" data-cat="Bebida" onclick="filterMenu(this,'Bebida')">              Bebidas (2
+              )            </button>
+</div>
+<div class="menu-layout">
+<div class="menu-items-grid" id="menu-grid">
+<div class="menu-card visible" data-cat="Bebida" data-valor="128.00">
+<div class="menu-card-top">
+<h3>Cerveza Tsingtao</h3>
+<div class="card-price">3.20 €</div>
+</div>
+<div class="card-desc">Cerveza lager china de 33cl.</div>
+<div class="spice-dots">
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p10')">        + Anadir      </button>
+</div>
+<div class="menu-card visible" data-cat="Bebida" data-valor="350.00">
+<div class="menu-card-top">
+<h3>Té de Jazmín</h3>
+<div class="card-price">3.50 €</div>
+</div>
+<div class="card-desc">Té tradicional servido en tetera de cerámica.</div>
+<div class="spice-dots">
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p09')">        + Anadir      </button>
+</div>
+<div class="menu-card visible" data-cat="Postre" data-valor="100.00">
+<div class="menu-card-top">
+<h3>Plátano Frito con Miel</h3>
+<div class="card-price">4.00 €</div>
+</div>
+<div class="card-desc">Plátano rebozado servido caliente con miel china.</div>
+<div class="spice-dots">
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p08')">        + Anadir      </button>
+</div>
+<div class="menu-card visible" data-cat="Entrante" data-valor="225.00">
+<div class="menu-card-top">
+<h3>Rollitos de Primavera</h3>
+<div class="card-price">4.50 €</div>
+</div>
+<div class="card-desc">Dos rollitos crujientes con verduras y carne.</div>
+<div class="spice-dots">
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p01')">        + Anadir      </button>
+</div>
+<div class="menu-card visible" data-cat="Entrante" data-valor="130.00">
+<div class="menu-card-top">
+<h3>Dim Sum de Gambas</h3>
+<div class="card-price">6.50 €</div>
+</div>
+<div class="card-desc">Cuatro piezas al vapor rellenas de langostino fresco.</div>
+<div class="spice-dots">
+<div class="spice-dot hot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p02')">        + Anadir      </button>
+</div>
+<div class="menu-card visible" data-cat="Vegetariano" data-valor="105.00">
+<div class="spice-flag">🌶 Picante</div>
+<div class="menu-card-top">
+<h3>Berenjenas con Salsa Yu Xiang</h3>
+<div class="card-price">7.50 €</div>
+</div>
+<div class="card-desc">Berenjenas tiernas salteadas con ajo y jengibre.</div>
+<div class="spice-dots">
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p07')">        + Anadir      </button>
+</div>
+<div class="menu-card visible" data-cat="Vegetariano" data-valor="89.00">
+<div class="spice-flag">🌶 Muy picante</div>
+<div class="menu-card-top">
+<h3>Mapo Tofu (Opción Veggie)</h3>
+<div class="card-price">8.90 €</div>
+</div>
+<div class="card-desc">Tofu suave con salsa de soja fermentada y setas.</div>
+<div class="spice-dots">
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+<div class="spice-dot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p06')">        + Anadir      </button>
+</div>
+<div class="menu-card visible" data-cat="Carne" data-valor="142.50">
+<div class="spice-flag">🌶 Picante</div>
+<div class="menu-card-top">
+<h3>Pollo Kung Pao</h3>
+<div class="card-price">9.50 €</div>
+</div>
+<div class="card-desc">Pollo con cacahuetes, verduras y chile seco.</div>
+<div class="spice-dots">
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p03')">        + Anadir      </button>
+</div>
+<div class="menu-card visible" data-cat="Carne" data-valor="134.40">
+<div class="spice-flag">🌶 Muy picante</div>
+<div class="menu-card-top">
+<h3>Ternera Szechuan</h3>
+<div class="card-price">11.20 €</div>
+</div>
+<div class="card-desc">Tiras de ternera salteadas con salsa picante especial.</div>
+<div class="spice-dots">
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+<div class="spice-dot hot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p04')">        + Anadir      </button>
+</div>
+<div class="menu-card visible" data-cat="Carne" data-valor="144.00">
+<div class="menu-card-top">
+<h3>Pato Laqueado a la Pekinesa</h3>
+<div class="card-price">18.00 €</div>
+</div>
+<div class="card-desc">Pato asado servido con crepes y salsa hoisin.</div>
+<div class="spice-dots">
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+<div class="spice-dot"></div>
+</div>
+<button class="add-btn" onclick="addToCart('p05')">        + Anadir      </button>
+</div>
+</div>
+<div class="basket-panel">
+<div class="basket-header"><h3>🧺 Tu pedido</h3></div>
+<div class="basket-type-toggle">
+<button class="toggle-opt active" id="tog-sala" onclick="setOrderType('sala',this)">                  🍽 En sala                </button><button class="toggle-opt" id="tog-llevar" onclick="setOrderType('llevar',this)">                  🛵 Para llevar                </button>
+</div>
+<div class="basket-items" id="basket-items"><div class="basket-empty">
+<span>🥢</span>Tu cesta esta vacia                </div></div>
+<div class="basket-footer">
+<div class="basket-total">
+<span>Total</span><span id="basket-total">0,00 €</span>
+</div>
+<button class="order-btn" id="order-btn" disabled onclick="sendOrder()">                  Enviar pedido                </button>
+</div>
+</div>
+</div>
+<footer><div class="footer-col">
+<h4>Donde estamos</h4>
+<p>Calle Seda, 8<br>
+                Santa Cruz de Tenerife<br>
+                922 000 000</p>
+</div>
+<div class="footer-col">
+<h4>Horario</h4>
+<p>Lun-Vie: 13h-16h · 20h-00h<br>
+                Sab-Dom: 13h-00h</p>
+</div>
+<div class="footer-col">
+<h4>Para llevar</h4>
+<p>Pedidos minimo 15 €<br>
+                Entrega en 25-35 min<br>
+                Zona centro Santa Cruz</p>
+</div></footer><div class="footer-bottom">            © 2025 Gran Dragón Dorado
+            · Todos los derechos reservados          </div>
+</div>
+<div id="page-trabaja" class="page">
+<section class="trabaja-hero"><div class="trabaja-hero-bg"></div>
+<div class="trabaja-hero-content">
+<div class="eyebrow">Unete a la familia</div>
+<h1>Trabaja con<br><em>nosotros</em>
+</h1>
+<p class="sub">                Buscamos personas apasionadas por la gastronomia, el servicio de excelencia y la cultura asiatica.              </p>
+<div class="hero-chips">
+<div class="hero-chip">
+<strong>4</strong>Puestos abiertos</div>
+<div class="hero-chip">
+<strong>37</strong>Anos de historia</div>
+<div class="hero-chip">
+<strong>+18</strong>Personas en equipo</div>
+</div>
+<div style="margin-top:36px"><button type="button" class="btn-primary" onclick="irA('.positions-section')">Ver puestos disponibles</button></div>
+</div>
+<div class="hero-scroll-down" onclick="irA('.values-strip')">Descubrir</div></section><div class="values-strip">
+<div class="value-item">
+<div class="v-icon">🌱</div>
+<h4>Crecimiento</h4>
+<p>Formacion continua y plan de carrera</p>
+</div>
+<div class="value-item">
+<div class="v-icon">🤝</div>
+<h4>Equipo</h4>
+<p>Ambiente familiar y multicultural</p>
+</div>
+<div class="value-item">
+<div class="v-icon">🍜</div>
+<h4>Pasion</h4>
+<p>Amor genuino por la cocina asiatica</p>
+</div>
+<div class="value-item">
+<div class="v-icon">💎</div>
+<h4>Calidad</h4>
+<p>Estandares de excelencia en todo</p>
+</div>
+</div>
+<div class="positions-section">
+<div class="positions-title">Puestos disponibles</div>
+<div class="position-card" onclick="togglePosition(this)">
+<div class="position-head">
+<h3>Cocinero/a Partida Wok</h3>
+<div class="position-meta">
+<span class="pos-badge full">Jornada completa</span><span class="pos-arrow">∨</span>
+</div>
+</div>
+<div class="position-body">
+<p>Buscamos un perfil con experiencia en cocina asiatica o wok.</p>
+<ul>
+<li>Minimo 2 anos en cocina profesional</li>
+<li>Conocimiento de tecnicas chinas (vaporera, wok, ahumado)</li>
+<li>Se valorara experiencia en restaurante asiatico</li>
+</ul>
+</div>
+</div>
+<div class="position-card" onclick="togglePosition(this)">
+<div class="position-head">
+<h3>Ayudante de Cocina</h3>
+<div class="position-meta">
+<span class="pos-badge part">Media jornada</span><span class="pos-arrow">∨</span>
+</div>
+</div>
+<div class="position-body">
+<p>Apoyo en produccion, mise en place y limpieza.</p>
+<ul>
+<li>Sin experiencia minima requerida</li>
+<li>Disponibilidad fines de semana y festivos</li>
+</ul>
+</div>
+</div>
+<div class="position-card" onclick="togglePosition(this)">
+<div class="position-head">
+<h3>Camarero/a de Sala</h3>
+<div class="position-meta">
+<span class="pos-badge full">Jornada completa</span><span class="pos-arrow">∨</span>
+</div>
+</div>
+<div class="position-body">
+<p>Atencion al cliente en sala y asesoramiento sobre la carta.</p>
+<ul>
+<li>Experiencia minima 1 ano en sala</li>
+<li>Dominio de espanol; ingles muy valorado</li>
+</ul>
+</div>
+</div>
+<div class="position-card" onclick="togglePosition(this)">
+<div class="position-head">
+<h3>Repartidor/a Para Llevar</h3>
+<div class="position-meta">
+<span class="pos-badge part">Media jornada</span><span class="pos-arrow">∨</span>
+</div>
+</div>
+<div class="position-body">
+<p>Gestion de pedidos para llevar, zona centro Santa Cruz.</p>
+<ul>
+<li>Carne de moto o coche (imprescindible)</li>
+<li>Turno de tarde-noche (19h-00h)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="apply-section">
+<h2>Envianos tu candidatura</h2>
+<p>Rellena el formulario y nos pondremos en contacto contigo en 48 horas</p>
+<div class="apply-form">
+<div class="form-group">
+<label>Nombre</label><input type="text" placeholder="Tu nombre">
+</div>
+<div class="form-group">
+<label>Apellidos</label><input type="text" placeholder="Tus apellidos">
+</div>
+<div class="form-group">
+<label>Email</label><input type="email" placeholder="tu@email.com">
+</div>
+<div class="form-group">
+<label>Telefono</label><input type="tel" placeholder="+34 600 000 000">
+</div>
+<div class="form-group">
+<label>Puesto de interes</label><select><option value="">Selecciona un puesto</option>
+<option>Cocinero/a Partida Wok</option>
+<option>Ayudante de Cocina</option>
+<option>Camarero/a de Sala</option>
+<option>Repartidor/a Para Llevar</option>
+<option>Candidatura espontanea</option></select>
+</div>
+<div class="form-group">
+<label>Disponibilidad</label><select><option value="">Selecciona</option>
+<option>Inmediata</option>
+<option>En 2 semanas</option>
+<option>En 1 mes</option></select>
+</div>
+<div class="form-group full">
+<label>Cuentanos sobre ti</label><textarea placeholder="Experiencia, motivacion, por que quieres unirte..."></textarea>
+</div>
+<button class="submit-btn" onclick="submitForm()">Enviar candidatura</button>
+</div>
+</div>
+<footer><div class="footer-col">
+<h4>Contacto RRHH</h4>
+<p>empleo@grandragondonado.es<br>
+                922 000 001</p>
+</div>
+<div class="footer-col">
+<h4>Donde estamos</h4>
+<p>Calle Seda, 8<br>
+                Santa Cruz de Tenerife</p>
+</div>
+<div class="footer-col">
+<h4>Siguenos</h4>
+<p>@grandragondonado<br>
+                Instagram · LinkedIn</p>
+</div></footer><div class="footer-bottom">            © 2025 Gran Dragón Dorado
+            · Todos los derechos reservados          </div>
+</div>
+<div class="order-toast" id="toast">
+<div id="toast-title">Pedido enviado!</div>
+<p id="toast-msg">Preparamos tu pedido ahora mismo.</p>
+</div>
+<script>var dishes=[{id:'p10',cat:'Bebida',name:'Cerveza Tsingtao',price:3.20,spice:0},{id:'p09',cat:'Bebida',name:'Té de Jazmín',price:3.50,spice:0},{id:'p08',cat:'Postre',name:'Plátano Frito con Miel',price:4.00,spice:0},{id:'p01',cat:'Entrante',name:'Rollitos de Primavera',price:4.50,spice:0},{id:'p02',cat:'Entrante',name:'Dim Sum de Gambas',price:6.50,spice:1},{id:'p07',cat:'Vegetariano',name:'Berenjenas con Salsa Yu Xiang',price:7.50,spice:2},{id:'p06',cat:'Vegetariano',name:'Mapo Tofu (Opción Veggie)',price:8.90,spice:4},{id:'p03',cat:'Carne',name:'Pollo Kung Pao',price:9.50,spice:3},{id:'p04',cat:'Carne',name:'Ternera Szechuan',price:11.20,spice:5},{id:'p05',cat:'Carne',name:'Pato Laqueado a la Pekinesa',price:18.00,spice:0}];</script><script>//  
+var cart={},orderType='sala';
+function filterMenu(btn,cat){
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.menu-card').forEach(function(c){
+    c.classList.toggle('visible', cat==='Todos' || c.getAttribute('data-cat')===cat);
+  });
+}
+function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart();}
+function changeQty(id,delta){ cart[id]=(cart[id]||0)+delta;
+  if(cart[id]<=0){delete cart[id];}
+  renderCart();
+}
+function renderCart(){
+  var items=document.getElementById('basket-items');
+  var totalEl=document.getElementById('basket-total');
+  var btn=document.getElementById('order-btn');
+  var countEl=document.getElementById('cart-count');
+  var ids=Object.keys(cart); countEl.textContent=ids.reduce(function(s,k){return s+cart[k];},0);
+  if(!ids.length){ items.innerHTML='<div class="basket-empty"><span>&#x1F962;</span>Tu cesta esta vacia</div>'; totalEl.textContent='0,00 EUR'; btn.disabled=true;
+    return;
+  }
+  var total=0; items.innerHTML=ids.map(function(id){
+    var d=dishes.find(function(x){return x.id===id;});
+    var sub=d.price*cart[id]; total+=sub;
+    return '<div class="basket-item">'
+      +'<div class="bi-name">'+d.name+'</div>'
+      +'<div class="bi-qty">'
+        +'<button class="qty-btn" onclick="changeQty(\''+id+'\',-1)">-</button>'
+        +'<span class="qty-num">'+cart[id]+'</span>'
+        +'<button class="qty-btn" onclick="changeQty(\''+id+'\',1)">+</button>'
+      +'</div>'
+      +'<div class="bi-price">'+sub.toFixed(2).replace('.',',')+' EUR</div>'
+    +'</div>';
+  }).join(''); totalEl.textContent=total.toFixed(2).replace('.',',')+' EUR'; btn.disabled=false;
+}
+function setOrderType(type,btn){ orderType=type;
+  document.querySelectorAll('.toggle-opt').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active'); document.getElementById('order-btn').textContent=type==='sala'?'Enviar a cocina':'Confirmar para llevar';
+}
+function sendOrder(){
+  if(!Object.keys(cart).length){return;}
+  var toast=document.getElementById('toast'); document.getElementById('toast-title').textContent=orderType==='sala'?'Pedido a cocina!':'Pedido para llevar!'; document.getElementById('toast-msg').textContent=orderType==='sala'?'Tu pedido ha llegado a cocina!':'Listo en 25 minutos.';
+  toast.classList.add('show'); cart={};renderCart();
+  setTimeout(function(){toast.classList.remove('show');},4000);
+}
+function goTo(page){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  var el=document.getElementById('page-'+page);
+  el.classList.add('active'); el.scrollTop=0;
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.classList.toggle('active', a.getAttribute('data-page')===page);
+  });
+}
+function irA(sel){
+  var page=document.querySelector('.page.active');
+  var target=document.querySelector(sel);
+  if(page && target){page.scrollTo({top:page.scrollTop+target.getBoundingClientRect().top-70,behavior:'smooth'});}
+}
+function togglePosition(card){card.classList.toggle('open');}
+function submitForm(){
+  var toast=document.getElementById('toast'); document.getElementById('toast-title').textContent='Candidatura enviada'; document.getElementById('toast-msg').textContent='Nos pondremos en contacto en 48 horas.';
+  toast.classList.add('show');
+  setTimeout(function(){toast.classList.remove('show');},4000);
+}
+function watchScroll(){
+  document.querySelectorAll('.page').forEach(function(p){
+    p.addEventListener('scroll',function(){
+      if(p.classList.contains('active')){
+        document.getElementById('main-nav').classList.toggle('scrolled',p.scrollTop>60);
       }
-      var total = 0;
-      items.innerHTML = ids.map(function (id) {
-        var d = dishes.find(function (x) { return x.id === id; });
-        var sub = d.price * cart[id];
-        total += sub;
-        return '<div class="basket-item">'
-          + '<div class="bi-name">' + d.name + '</div>'
-          + '<div class="bi-qty">'
-          + '<button class="qty-btn" onclick="changeQty(\'' + id + '\',-1)">-</button>'
-          + '<span class="qty-num">' + cart[id] + '</span>'
-          + '<button class="qty-btn" onclick="changeQty(\'' + id + '\',1)">+</button>'
-          + '</div>'
-          + '<div class="bi-price">' + sub.toFixed(2).replace('.', ',') + ' EUR</div>'
-          + '</div>';
-      }).join('');
-      totalEl.textContent = total.toFixed(2).replace('.', ',') + ' EUR';
-      btn.disabled = false;
-    }
-    function setOrderType(type, btn) {
-      orderType = type;
-      document.querySelectorAll('.toggle-opt').forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      document.getElementById('order-btn').textContent = type === 'sala' ? 'Enviar a cocina' : 'Confirmar para llevar';
-    }
-    function sendOrder() {
-      if (!Object.keys(cart).length) { return; }
-      var toast = document.getElementById('toast');
-      document.getElementById('toast-title').textContent = orderType === 'sala' ? 'Pedido a cocina!' : 'Pedido para llevar!';
-      document.getElementById('toast-msg').textContent = orderType === 'sala' ? 'Tu pedido ha llegado a cocina!' : 'Listo en 25 minutos.';
-      toast.classList.add('show');
-      cart = {}; renderCart();
-      setTimeout(function () { toast.classList.remove('show'); }, 4000);
-    }
-    function goTo(page) {
-      document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
-      var el = document.getElementById('page-' + page);
-      el.classList.add('active');
-      el.scrollTop = 0;
-      document.querySelectorAll('.nav-links a').forEach(function (a) {
-        a.classList.toggle('active', a.getAttribute('data-page') === page);
-      });
-    }
-    function irA(sel) {
-      var target = document.querySelector(sel);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-
-    function togglePosition(card) { card.classList.toggle('open'); }
-    function submitForm() {
-      var toast = document.getElementById('toast');
-      document.getElementById('toast-title').textContent = 'Candidatura enviada';
-      document.getElementById('toast-msg').textContent = 'Nos pondremos en contacto en 48 horas.';
-      toast.classList.add('show');
-      setTimeout(function () { toast.classList.remove('show'); }, 4000);
-    }
-    function watchScroll() {
-      document.querySelectorAll('.page').forEach(function (p) {
-        p.addEventListener('scroll', function () {
-          if (p.classList.contains('active')) {
-            document.getElementById('main-nav').classList.toggle('scrolled', p.scrollTop > 60);
-          }
-        }, { passive: true });
-      });
-    }
-    window.goTo = goTo; window.irA = irA; window.filterMenu = filterMenu;
-    window.addToCart = addToCart; window.changeQty = changeQty;
-    window.setOrderType = setOrderType; window.sendOrder = sendOrder;
-    window.togglePosition = togglePosition; window.submitForm = submitForm;
-    renderCart();
-    setOrderType('sala', document.getElementById('tog-sala'));
-    watchScroll();
-    //</script>
+    },{passive:true}); }); } window.goTo=goTo; window.irA=irA; window.filterMenu=filterMenu; window.addToCart=addToCart; window.changeQty=changeQty; window.setOrderType=setOrderType; window.sendOrder=sendOrder; window.togglePosition=togglePosition; window.submitForm=submitForm;
+renderCart();
+setOrderType('sala',document.getElementById('tog-sala'));
+watchScroll();
+//</script>
 </body>
-
 </html>
